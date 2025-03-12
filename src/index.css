@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+*{
+  scroll-behavior: smooth;
+}
+@font-face {
+  font-family: roboto;
+  src: url('./assets/font/Roboto.ttf') ; /* Correct the format and path */
+}
+
+
+body{
+  font-family: 'Roboto', sans-serif;
+  
+}
+/* Custom group of styles for components using Tailwind classes */
+.navlink {
+  @apply cursor-pointer
+}
+
+@keyframes moveUpDown {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
+
+.animate-move-up-down {
+  animation: moveUpDown 2s infinite;
+}
+
+::-webkit-scrollbar{
+  width: 10px;
+}
+
+::-webkit-scrollbar-track{
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb{
+  background: #888;
+  border-radius: 5px;
+}
