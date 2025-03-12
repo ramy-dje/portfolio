@@ -12,7 +12,7 @@ Welcome to my personal portfolio! This project showcases my skills, projects, an
 - **Frontend:** React, Framer Motion, Tailwind CSS
 
 ## 🎬 Preview
-[Live Demo](#) (Replace `#` with your live portfolio link)
+[Live Demo](#) 
 
 ## 💖 About Me
 I love animations and making smooth user experiences! Hope you like my portfolio as much as I enjoyed building it. 😊
