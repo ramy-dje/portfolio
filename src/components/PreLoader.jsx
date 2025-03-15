@@ -52,16 +52,19 @@ export default function PreLoader() {
     
     // Handle word cycling
     useEffect(() => {
+        document.body.style.overflow = "hidden";
         if(index === words.length - 1) {
             // Set a timeout to trigger exit animation when all words are shown
             setTimeout(() => {
                 setIsComplete(true);
+                document.body.style.overflow = "auto";
             }, 800);
             return;
         }
         
         const timeout = setTimeout(() => {
             setIndex(index + 1);
+            
         }, index === 0 ? 1000 : 150);
         
         return () => clearTimeout(timeout);

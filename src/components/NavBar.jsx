@@ -13,16 +13,16 @@ function NavBar({isBlack=false}) {
         <div className="hidden md:block">
           <div className="flex gap-4">
             <Magnetic >
-              <a href="#about" className="navlink ">about</a>
+              <a href="/#about" className="navlink ">about</a>
             </Magnetic>
             <Magnetic>
-              <a href="#skills" className="navlink">skills</a>
+              <a href="/#skills" className="navlink">skills</a>
             </Magnetic>
             <Magnetic>
-              <a href="#projects" className="navlink">projects</a>
+              <a href="/#projects" className="navlink">projects</a>
             </Magnetic>
             <Magnetic>
-              <a href="#contact" className="navlink">contact</a>
+              <a href="/#contact" className="navlink">contact</a>
             </Magnetic>
           </div>
         </div>

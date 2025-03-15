@@ -18,8 +18,8 @@ function Projects() {
     };
 
     const projects = [
-        { title: "VerticCity", src: "/verticCity/1.jpg",color:"#7be89f"  },
         { title: "TESSAM POS", src: "/tessam/1.png", color: "#787878" },
+        { title: "VerticCity", src: "/verticCity/1.jpg",color:"#7be89f"  },
         { title: "FindDoc", src: "/findDoc/1.png", color: "#a2aefc" },
         { title: "Shiek Shop", src: "/shiek/1.png", color: "#EFE8D3" }
     ];

@@ -36,12 +36,12 @@ const projects = [
       ✔️ Integrated Loyalty Program: Reward customers and boost retention 🎁
     `,
     images: [
-        "/tessam/show.png",
         "/tessam/1.png",
         "/tessam/2.png",
         "/tessam/3.png",
         "/tessam/4.png",
         "/tessam/5.png",
+        "/tessam/6.png",
     ],
     techStack: [
       { name: "reactjs", image: "/icons/reactjs.png" },
@@ -113,10 +113,10 @@ const projects = [
     I truly enjoyed developing this project, focusing on performance, design, and user experience to create a fast, elegant, and efficient shopping platform. ✨
     `,
     images: [
-      '/shiek/show.png',
       '/shiek/1.png',
       '/shiek/2.png',
       '/shiek/3.png',
+      '/shiek/4.png',
     ],
     techStack: [
       { name: "reactjs", image: "/icons/reactjs.png" },
@@ -126,7 +126,8 @@ const projects = [
     ],
     link: "https://chiek.netlify.app/",
     logo: "/logos/chieck.png"
-  }
+  },
+  
 ]
 
 export {authers,databases,mobileDevSkills,webDevSkills,projects}

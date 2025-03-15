@@ -7,10 +7,9 @@ import Contact from '../components/Contact'
 import PreLoader from '../components/PreLoader'
 
 function Main() {
-  const [stop, setstop] = useState(true)
   return (
     <div>
-       {/* <PreLoader />*/}
+        <PreLoader />
         <Hero />
         <About />
         <Skills />
