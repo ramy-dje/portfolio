@@ -9,7 +9,7 @@ function MenuTrigger() {
   const [currentHash, setCurrentHash] = useState(
     window.location.hash || '#home'
   );
-
+  const [shouldShowBorder,setShouldShowBorder] = useState(false)
   useEffect(() => {
     const handleHashChange = () =>
       setCurrentHash(window.location.hash || '#home');
@@ -21,6 +21,8 @@ function MenuTrigger() {
     const checkVisibility = () => {
       const shouldShow = window.innerWidth < 758 || window.scrollY > 100;
       setShowButton(shouldShow);
+      const shouldShowBorder = window.scrollY > window.innerHeight;
+      setShouldShowBorder(shouldShowBorder);
     };
 
     // Run once on mount
@@ -51,7 +53,7 @@ function MenuTrigger() {
           >
             <Magnetic modify={0.4}>
               <div
-                className="md:w-20 w-16 md:h-20 h-16 rounded-full flex flex-col items-center justify-center gap-2 cursor-pointer"
+                className={`md:w-20 w-16 md:h-20 h-16 rounded-full flex flex-col items-center justify-center gap-2 cursor-pointer ${shouldShowBorder && 'border-[1px] border-gray-100'}`}
                 style={{ backgroundColor: theBlack }}
               >
                 <div className="md:w-8 w-6 h-[2px] bg-white rounded-full" />
