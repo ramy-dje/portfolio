@@ -152,7 +152,7 @@ function Contact() {
                 value={formData.message}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                placeholder="Tell me how I can help you *"
+                placeholder="Tell me how can i help you *"
                 className="w-full h-32 bg-transparent text-gray-400 placeholder:text-gray-500 text-xl outline-none resize-none"
               />
               {touched.message && errors.message && (
