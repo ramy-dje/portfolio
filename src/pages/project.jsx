@@ -1,73 +1,116 @@
-import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import NavBar from '../components/NavBar'
-import MagneticButton from '../components/MagneticButton'
-import NextProject from '../components/NextProject'
-import { projects } from '../utils/info'
+import React, { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import NavBar from '../components/NavBar';
+import MagneticButton from '../components/MagneticButton';
+import NextProject from '../components/NextProject';
+import { projects } from '../utils/info';
+import MenuTrigger from '../components/menuTrigger';
 
 function Project() {
-    
   useEffect(() => {
-    // Disable scroll memory by resetting scroll position
-    window.scrollTo(0, 0); // Scroll to the top of the page when the component mounts
-
-    return () => {
-      // Optionally, you can reset scroll position again when the component unmounts
-      window.scrollTo(0, 0);
-    };
+    window.scrollTo(0, 0);
+    return () => window.scrollTo(0, 0);
   }, []);
 
-  const { name } = useParams()
-  const project = projects.find((project) => project.name === name)
-  var projectIndex = projects.findIndex((project) => project.name === name);
-  if(projectIndex >= projects.length-1){
-    projectIndex = 0
-  }else{
-    projectIndex += 1
-  }
+  const { name } = useParams();
+  const project = projects.find((p) => p.name === name);
 
+  let projectIndex = projects.findIndex((p) => p.name === name);
+  projectIndex = (projectIndex + 1) % projects.length;
 
   return (
-    <div>
-        <NavBar isBlack/>
-        <div className='md:m-16 m-4'>
-            <h1 className=' text-4xl'>{project.name}</h1>
-            <div className='w-full flex justify-end py-2 md:px-16'>
-                <img src={project.logo} alt="" className=' w-[100px]  my-4'/>
-            </div>
-            <p >
-                {project.description.split('<br/>').map((e,i)=><span key={i}>{e}<br/></span>)}
-            </p>
-            <div className='flex md:flex-row flex-col justify-between mt-16'>
-                <div className='md:w-7/12 w-full'>
-                    <h2 className='text-xl text-gray-400 py-2 border-b-1 border-gray-400'>Tech stack</h2>
-                    <div className='flex gap-1 mt-4'>
-                        {project.techStack.map((tech, index) => (
-                            <div key={index} className='h-10 w-10 rounded-full mx-1'>
-                                <img  src={tech.image} alt={tech.name} className='w-full h-full object-cover'/>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div className='md:w-4/12 w-full mt-4 md:mt-0'>
-                    <h2 className='text-xl text-gray-400 py-2 border-b-1 border-gray-400'>created at</h2>
-                    <p className='mt-4 text-lg'>July@2024</p>
-                </div>
-            </div>
-
-            <div className='md:mt-40 mt-16 relative'>
-                <a href={project.link} target='_blank' className='absolute md:top-[-100px] top-[-150px] md:right-[-20px] right-0'>
-                    <MagneticButton isSMall={window.innerWidth < 500} title={'live site'}/>
-                </a>
-                <img src={project.images[0]} alt="" className='bg-gray-500 w-full'/>
-            </div>
-            {project.images.slice(1).map((image, index) => (
-                <img key={index} src={image} alt="" className='bg-gray-500 w-full  mt-8'/>
-            ))}
+    <div className="text-gray-800 bg-white min-h-screen">
+      <NavBar isBlack={true} />
+      <MenuTrigger />
+      <div className="max-w-6xl mx-auto px-4 md:px-12 py-16">
+        {/* Title and Logo */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+            {project.name}
+          </h1>
+          <img
+            src={project.logo}
+            alt="logo"
+            className="w-[100px] mt-6 md:mt-0"
+          />
         </div>
-        <NextProject name={projects[projectIndex].name} image={projects[projectIndex].images[0]} />
+
+        {/* Description */}
+        <div className="text-gray-600 text-lg leading-relaxed mb-16 space-y-4">
+          {project.description.split('<br/>').map((line, i) => (
+            <p key={i}>{line}</p>
+          ))}
+        </div>
+
+        {/* Tech and Meta Info */}
+        <div className="flex flex-col md:flex-row justify-between gap-16">
+          {/* Tech Stack */}
+          <div className="md:w-7/12">
+            <h2 className="text-xl md:text-2xl text-gray-800 font-semibold mb-4">
+              Tech Stack
+            </h2>
+            <div className="flex flex-wrap gap-3">
+              {project.techStack.map((tech, i) => (
+                <div
+                  key={i}
+                  className="h-12 w-12 rounded-full bg-gray-100 p-2 shadow-sm"
+                >
+                  <img
+                    src={tech.image}
+                    alt={tech.name}
+                    className="w-full h-full object-contain rounded-full"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Created At */}
+          <div className="md:w-4/12">
+            <h2 className="text-xl md:text-2xl text-gray-800 font-semibold mb-4">
+              Created
+            </h2>
+            <p className="text-gray-600 text-lg">July 2024</p>
+          </div>
+        </div>
+
+        {/* Live Site Button + Primary Image */}
+        <div className="relative my-20">
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noreferrer"
+            className="absolute xl:right-[-80px] right-0 -top-16"
+          >
+            <MagneticButton
+              isSMall={window.innerWidth < 768}
+              title={'Live Site'}
+            />
+          </a>
+          <img
+            src={project.images[0]}
+            alt="Project Screenshot"
+            className="w-full rounded-lg shadow-xl"
+          />
+        </div>
+
+        {/* Additional Images */}
+        {project.images.slice(1).map((image, i) => (
+          <img
+            key={i}
+            src={image}
+            alt={`Screenshot ${i + 2}`}
+            className="w-full mt-12 rounded-lg shadow-md"
+          />
+        ))}
+      </div>
+
+      <NextProject
+        name={projects[projectIndex].name}
+        image={projects[projectIndex].images[0]}
+      />
     </div>
-  )
+  );
 }
 
-export default Project
+export default Project;

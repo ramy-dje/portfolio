@@ -1,31 +1,156 @@
-const webDevSkills = [
-    { name: "reactjs", image: "/icons/reactjs.png" },
-    { name: "nextjs", image: "/icons/next.png" },
-    { name: "nodejs", image: "/icons/node.png" },
-    { name: "express", image: "/icons/express.png" },
-    { name: "redux", image: "/icons/redux.png" }
-  ]
-  const mobileDevSkills = [
-    { name: "expo", image: "/icons/expo.png" },
-    { name: "react native", image: "/icons/reactnative.png" }
-  ]
-  const databases = [
-    { name: "redis", image: "/icons/redis.png" },
-    { name: "mysql", image: "/icons/mysql.png" },
-    { name: "mongodb", image: "/icons/mongo.png" },
-    { name: "sqlite", image: "/icons/sqlite.png" }
-  ]
-  const authers = [
-    { name: "docker", image: "/icons/docker.png" },
-    { name: "git", image: "/icons/git.png" },
-    { name: "linux", image: "/icons/linux.png" },
-    { name: "figma", image: "/icons/figma.png" },
-    { name: "photoshop", image: "/icons/ps.png" }
-  ]
+const programmingLanguages = [
+  { name: 'JavaScript', color: '#F7DF1E', textColor: '#000', symbol: 'JS' },
+  { name: 'Python', color: '#3776AB', textColor: '#fff', symbol: 'Py' },
+  { name: 'TypeScript', color: '#3178C6', textColor: '#fff', symbol: 'TS' },
+  { name: 'PHP', color: '#777BB4', textColor: '#fff', symbol: 'PHP' },
+  // 🖥️ Web Development
+  {
+    name: 'ReactJS',
+    image: '/icons/reactjs.png',
+    color: '#61DAFB',
+    textColor: '#000',
+  },
+  {
+    name: 'Next.js',
+    image: '/icons/next.png',
+    color: '#FFFFFF',
+    textColor: '#000',
+  },
+  {
+    name: 'Node.js',
+    image: '/icons/node.png',
+    color: '#3C873A',
+    textColor: '#fff',
+  },
+  {
+    name: 'Express',
+    image: '/icons/express.png',
+    color: '#CCCCCC',
+    textColor: '#000',
+  },
+  {
+    name: 'Redux',
+    image: '/icons/redux.png',
+    color: '#764ABC',
+    textColor: '#fff',
+  },
 
+  // 📱 Mobile Development
+  {
+    name: 'Expo',
+    image: '/icons/expo.png',
+    color: '#FFFFFF',
+    textColor: '#fff',
+  },
+  {
+    name: 'React Native',
+    image: '/icons/reactnative.png',
+    color: '#61DAFB',
+    textColor: '#000',
+  },
+
+  // 🛢️ Databases
+  {
+    name: 'Redis',
+    image: '/icons/redis.png',
+    color: '#DC382D',
+    textColor: '#fff',
+  },
+  {
+    name: 'MySQL',
+    image: '/icons/mysql.png',
+    color: '#00758F',
+    textColor: '#fff',
+  },
+  {
+    name: 'MongoDB',
+    image: '/icons/mongo.png',
+    color: '#47A248',
+    textColor: '#fff',
+  },
+  {
+    name: 'SQLite',
+    image: '/icons/sqlite.png',
+    color: '#FFFFFF',
+    textColor: '#fff',
+  },
+
+  // ⚙️ Tools / Others
+  {
+    name: 'Docker',
+    image: '/icons/docker.png',
+    color: '#2496ED',
+    textColor: '#fff',
+  },
+  { name: 'Git', image: '/icons/git.png', color: '#F1502F', textColor: '#000' },
+  {
+    name: 'Linux',
+    image: '/icons/linux.png',
+    color: '#FCC624',
+    textColor: '#000',
+  },
+  {
+    name: 'Figma',
+    image: '/icons/figma.png',
+    color: '#F24E1E',
+    textColor: '#fff',
+  },
+  {
+    name: 'Photoshop',
+    image: '/icons/ps.png',
+    color: '#3178C6',
+    textColor: '#fff',
+  },
+];
+
+const categories = [
+  {
+    title: 'Frontend development',
+    items: [
+      'React',
+      'Next.js',
+      'TypeScript',
+      'JavaScript',
+      'Tailwind CSS',
+      'Framer Motion',
+      'Redux',
+    ],
+  },
+  {
+    title: 'Backend development',
+    items: [
+      'Node.js',
+      'Express',
+      'NestJS',
+      'MongoDB',
+      'PHP',
+      'Laravel',
+      'Redis',
+      'MySQL',
+      'SQLite',
+    ],
+  },
+  {
+    title: 'Mobile development',
+    items: ['React Native'],
+  },
+  {
+    title: 'Other skills',
+    items: [
+      'Git',
+      'Docker',
+      'GraphQL',
+      'RESTful APIs',
+      'Socket.IO',
+      'Linux',
+      'Figma',
+      'Photoshop',
+    ],
+  },
+];
 const projects = [
   {
-    name: "TESSAM POS",
+    name: 'TESSAM POS',
     description: `
       TESSAM is a powerful and versatile Point of Sale (POS) system, designed as a complete solution for managing sales, inventory, and customer interactions in retail and service environments.<br/>
       🌟Key Features: <br/>
@@ -36,24 +161,24 @@ const projects = [
       ✔️ Integrated Loyalty Program: Reward customers and boost retention 🎁
     `,
     images: [
-        "/tessam/1.png",
-        "/tessam/2.png",
-        "/tessam/3.png",
-        "/tessam/4.png",
-        "/tessam/5.png",
-        "/tessam/6.png",
+      '/tessam/1.png',
+      '/tessam/2.png',
+      '/tessam/3.png',
+      '/tessam/4.png',
+      '/tessam/5.png',
+      '/tessam/6.png',
     ],
     techStack: [
-      { name: "reactjs", image: "/icons/reactjs.png" },
-      { name: "nodejs", image: "/icons/node.png" },
-      { name: "express", image: "/icons/express.png" },
-      { name: "mongodb", image: "/icons/mongo.png" }
+      { name: 'reactjs', image: '/icons/reactjs.png' },
+      { name: 'nodejs', image: '/icons/node.png' },
+      { name: 'express', image: '/icons/express.png' },
+      { name: 'mongodb', image: '/icons/mongo.png' },
     ],
-    link: "https://tessam.netlify.app/",
-    logo: "/logos/tessam.png"
+    link: 'https://tessam.netlify.app/',
+    logo: '/logos/tessam.png',
   },
   {
-    name: "VerticCity",
+    name: 'VerticCity',
     description: `
       The Verticcity app connects plant enthusiasts with trusted sellers while providing a platform for sharing knowledge through blogs. It features a multi-actor system with sellers, buyers, and admins.<br/>
       Key features include:<br/>
@@ -64,21 +189,18 @@ const projects = [
       📈 Analytics: Insights for admins and sellers.<br/>
       🌱 User-Friendly: Seamless experience for all users.    
     `,
-    images: [
-       '/verticCity/1.jpg',
-       '/verticCity/2.jpg',
-    ],
+    images: ['/verticCity/1.jpg', '/verticCity/2.jpg'],
     techStack: [
-      { name: "reactjs", image: "/icons/reactjs.png" },
-      { name: "nodejs", image: "/icons/node.png" },
-      { name: "express", image: "/icons/express.png" },
-      { name: "mongodb", image: "/icons/mongo.png" }
+      { name: 'reactjs', image: '/icons/reactjs.png' },
+      { name: 'nodejs', image: '/icons/node.png' },
+      { name: 'express', image: '/icons/express.png' },
+      { name: 'mongodb', image: '/icons/mongo.png' },
     ],
-    link: "https://drive.google.com/file/d/1O9eKu7O7xh7F00i_vEm05Z83ptAZj9Ah/view?usp=sharing",
-    logo: "/logos/verticcity.png"
+    link: 'https://drive.google.com/file/d/1O9eKu7O7xh7F00i_vEm05Z83ptAZj9Ah/view?usp=sharing',
+    logo: '/logos/verticcity.png',
   },
   {
-    name: "FindDoc",
+    name: 'FindDoc',
     description: `
       🏥 A web app for booking doctor appointments, built with React.js, Node.js and MongoDB, and designed using Figma for a smooth user experience.<br/>
       👥 Roles:<br/>
@@ -88,23 +210,23 @@ const projects = [
       I enjoyed developing this project, ensuring efficiency, ease of use, and a clean design for seamless healthcare management. 🚀
     `,
     images: [
-      "/findDoc/1.png",
-      "/findDoc/2.png",
-      "/findDoc/3.png",
-      "/findDoc/4.png",
-      "/findDoc/5.png"
+      '/findDoc/1.png',
+      '/findDoc/2.png',
+      '/findDoc/3.png',
+      '/findDoc/4.png',
+      '/findDoc/5.png',
     ],
     techStack: [
-      { name: "reactjs", image: "/icons/reactjs.png" },
-      { name: "nodejs", image: "/icons/node.png" },
-      { name: "express", image: "/icons/express.png" },
-      { name: "mongodb", image: "/icons/mongo.png" }
+      { name: 'reactjs', image: '/icons/reactjs.png' },
+      { name: 'nodejs', image: '/icons/node.png' },
+      { name: 'express', image: '/icons/express.png' },
+      { name: 'mongodb', image: '/icons/mongo.png' },
     ],
-    link: "https://finddoct.netlify.app/",
-    logo: "/logos/finddoc.png"
+    link: 'https://finddoct.netlify.app/',
+    logo: '/logos/finddoc.png',
   },
   {
-    name: "Shiek Shop",
+    name: 'Shiek Shop',
     description: `
     🛍️ A modern e-commerce platform for fashion, built with React.js, Laravel, and MySQL, and designed using Figma for a seamless shopping experience.<br/>
     👥 Roles:<br/>
@@ -112,22 +234,16 @@ const projects = [
     👨‍💼 Admin : Manage products, orders, users, stock, and promotions.<br/>
     I truly enjoyed developing this project, focusing on performance, design, and user experience to create a fast, elegant, and efficient shopping platform. ✨
     `,
-    images: [
-      '/shiek/1.png',
-      '/shiek/2.png',
-      '/shiek/3.png',
-      '/shiek/4.png',
-    ],
+    images: ['/shiek/1.png', '/shiek/2.png', '/shiek/3.png', '/shiek/4.png'],
     techStack: [
-      { name: "reactjs", image: "/icons/reactjs.png" },
-      { name: "nodejs", image: "/icons/node.png" },
-      { name: "express", image: "/icons/express.png" },
-      { name: "mongodb", image: "/icons/mongo.png" }
+      { name: 'reactjs', image: '/icons/reactjs.png' },
+      { name: 'nodejs', image: '/icons/node.png' },
+      { name: 'express', image: '/icons/express.png' },
+      { name: 'mongodb', image: '/icons/mongo.png' },
     ],
-    link: "https://chiek.netlify.app/",
-    logo: "/logos/chieck.png"
+    link: 'https://chiek.netlify.app/',
+    logo: '/logos/chieck.png',
   },
-  
-]
+];
 
-export {authers,databases,mobileDevSkills,webDevSkills,projects}
+export { programmingLanguages, categories, projects };

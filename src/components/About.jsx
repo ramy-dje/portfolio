@@ -1,56 +1,47 @@
-import React from 'react'
-import MagneticButton from './MagneticButton'
+import React, { useRef } from 'react';
 import { useInView, motion } from 'framer-motion';
-import { useRef } from 'react';
-import { opacity,slideUp } from '../utils/animate';
+import { slideUp } from '../utils/animate';
+import Magnetic from '../utils/Magnetic';
 
 function About() {
-  const about = useRef(null);
-  const isInView = useInView(about, { once: true, amount: 0.3 });
-
- 
-
   const intro = `Creating digital solutions for brands to stand out in the digital era
-          by using the magic of code and creativity together we will set the new
-          status always on the cutting edge`;
-          
-  // Split the intro text into words
+    by using the magic of code and creativity together we will set the new
+    status always on the cutting edge`;
+
   const words = intro.split(/\s+/);
 
   return (
-    <section id='about' className='py-16 md:px-32 px-4 flex md:flex-row flex-col md:justify-between'>
-      <div ref={about} className='md:w-[50%] w-full md:text-4xl text-xl flex flex-wrap'>
-        {words.map((word, index) => (
-          <div key={index} className="overflow-hidden mr-2 mb-2 relative">
-            <motion.span
-              custom={index}
-              variants={slideUp}
-              initial="initial"
-              animate={isInView ? "animate" : "initial"}
-              className="inline-block"
-            >
-              {word}
-            </motion.span>
+    <section
+      id="about"
+      className="md:py-16 py-10 md:px-32 px-4 flex flex-wrap h-screen lg:text-[65px] md:text-[45px] text-[35px] gap-4"
+    >
+      {words.map((word, index) => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const ref = useRef(null);
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const isInView = useInView(ref, {
+          once: true,
+          margin: '0px 0px -10% 0px',
+        });
+
+        return (
+          <div key={index} ref={ref} className="overflow-hidden relative">
+            <Magnetic modify={0.1}>
+              <motion.span
+                custom={index}
+                variants={slideUp}
+                initial="initial"
+                animate={isInView ? 'animate' : 'initial'}
+                className="inline-block"
+              >
+                {word}
+              </motion.span>
+            </Magnetic>
           </div>
-        ))}
-      </div>
-      <motion.div 
-        variants={opacity}
-        initial="initial"
-        animate={isInView ? "animate" : "initial"}
-        className='mt-16 font-light relative'
-      >
-        <p className='w-[200px]'>
-          my passion for problem solving and writing code are my fuel in the my tech journy
-        </p>
-        <div className='flex md:justify-start justify-end'>
-          <a  href='#projects'>
-            <MagneticButton isSMall={typeof window !== 'undefined' && window.innerWidth < 500} title={'my work'}/>
-          </a>
-        </div>
-      </motion.div>
+        );
+      })}
     </section>
-  )
+  );
 }
 
-export default About
+export default About;
