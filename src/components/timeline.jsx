@@ -9,7 +9,7 @@ const experiences = [
         Working full-time on modern full-stack applications using technologies
         like Next.js, Node.js, Nest.js and MongoDB. Contributing to scalable
         frontends and backend APIs with clean architecture.
-        <p className="mt-2 text-xs text-gray-300">March 2025 — Present</p>
+        <p className="mt-2 text-xs text-gray-300">January 2025 — Present</p>
       </div>
     ),
   },
