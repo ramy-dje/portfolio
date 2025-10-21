@@ -75,7 +75,7 @@ function MenuTrigger() {
             className="fixed top-0 right-0 h-full md:w-[35%] w-full bg-[#111] text-white p-8 z-60 shadow-2xl"
           >
             {/* Close Button */}
-            <div className="flex justify-end mb-10">
+            <div className="flex justify-end mb-6">
               <Magnetic modify={0.4}>
                 <div
                   onClick={toggleMenu}
@@ -109,7 +109,7 @@ function MenuTrigger() {
                           currentHash === href ? 'relative' : ''
                         }`}
                         style={{
-                          fontSize: '2.8rem',
+                          fontSize: '2rem',
                           letterSpacing: '0.03em',
                         }}
                       >
