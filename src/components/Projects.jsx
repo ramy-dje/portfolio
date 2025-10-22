@@ -11,6 +11,8 @@ function Projects() {
     { title: 'VerticCity', src: '/verticCity/1.jpg', color: '#7be89f' },
     { title: 'FindDoc', src: '/findDoc/1.png', color: '#a2aefc' },
     { title: 'Shiek Shop', src: '/shiek/1.png', color: '#EFE8D3' },
+    { title: 'NexoManager', src: '/nexo/dashboard.png', color: '#F24E1E' },
+    { title: 'Nova', src: '/novadoc/1.png', color: '#dda9f0' },
   ];
 
   const [modal, setModal] = useState({ active: false, index: 0 });

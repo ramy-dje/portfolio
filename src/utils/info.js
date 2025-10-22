@@ -200,6 +200,52 @@ const projects = [
     logo: '/logos/verticcity.png',
   },
   {
+    name: 'NexoManager',
+    description: `
+    🍕 A management platform for Nexo Pizza Pizzeria, built to efficiently handle stock levels, purchases, and staff organization. Designed for seamless coordination and smooth operations.<br/>
+👥 Roles:<br/>
+👨‍🍳 Staff: Record stock usage, track ingredient levels, and request supplies.<br/>
+📦 Manager: Monitor inventory, approve purchases, and oversee daily stock activities.<br/>
+🧾 Admin: Manage users, system settings, and generate detailed reports.<br/>
+I enjoyed developing this project to make restaurant stock management simpler, faster, and more organized. 🚀    `,
+    images: [
+      '/nexo/mockup.png',
+      '/nexo/1.png',
+      '/nexo/2.png',
+      '/nexo/3.png',
+      '/nexo/4.png',
+      '/nexo/5.png',
+    ],
+    techStack: [
+      { name: 'nextjs', image: '/icons/next.png' },
+      { name: 'nodejs', image: '/icons/node.png' },
+      { name: 'express', image: '/icons/express.png' },
+      { name: 'mongodb', image: '/icons/mongo.png' },
+    ],
+    link: 'https://nexo-manager.netlify.app/',
+    logo: '/logos/nexo.png',
+  },
+  {
+    name: 'Nova',
+    description: `
+    🏥 Nova Health is a mobile platform designed to simplify healthcare management by connecting patients, doctors, and admins in one place.<br/>
+👥 Roles:<br/>
+🧑‍⚕️ Patient: Book appointments, view doctor profiles, and track booking status.<br/>
+👨‍⚕️ Doctor: Confirm or reject appointments, manage schedules, and update availability.<br/>
+👨‍💼 Admin: Manage doctors, patients, and oversee all platform activities.<br/>
+I enjoyed building this project to make doctor booking easy, fast, and well-organized, improving both patient experience and clinic efficiency. 🚀 `,
+    images: ['/novadoc/1.png', '/novadoc/2.png'],
+    techStack: [
+      { name: 'react native', image: '/icons/reactnative.png' },
+      { name: 'nodejs', image: '/icons/node.png' },
+      { name: 'express', image: '/icons/express.png' },
+      { name: 'mongodb', image: '/icons/mongo.png' },
+    ],
+    link: 'https://nova-app.netlify.app/',
+    logo: '/logos/nova.png',
+  },
+
+  {
     name: 'FindDoc',
     description: `
       🏥 A web app for booking doctor appointments, built with React.js, Node.js and MongoDB, and designed using Figma for a smooth user experience.<br/>
