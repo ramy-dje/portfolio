@@ -3,13 +3,24 @@ import { Timeline } from './ui/timeline';
 
 const experiences = [
   {
+    title: 'React Native Developer – BigNova Company',
+    content: (
+      <div className="text-sm md:text-base text-gray-100 dark:text-neutral-300">
+        Working on various mobile applications using React Native, Expo, and TypeScript.
+        Developing cross-platform solutions with modern mobile development practices
+        and delivering high-quality user experiences.
+        <p className="mt-2 text-xs text-gray-300">November 2025 — Present</p>
+      </div>
+    ),
+  },
+  {
     title: 'Full‑Stack Developer – Black and Yellow',
     content: (
       <div className="text-sm md:text-base text-gray-100 dark:text-neutral-300">
         Working full-time on modern full-stack applications using technologies
         like Next.js, Node.js, Nest.js and MongoDB. Contributing to scalable
         frontends and backend APIs with clean architecture.
-        <p className="mt-2 text-xs text-gray-300">January 2025 — Present</p>
+        <p className="mt-2 text-xs text-gray-300">January 2025 — October 2025</p>
       </div>
     ),
   },
