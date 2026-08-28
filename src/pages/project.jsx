@@ -22,7 +22,7 @@ function Project() {
     <div className="text-gray-800 bg-white min-h-screen">
       <NavBar isBlack={true} />
       <MenuTrigger />
-      <div className="max-w-6xl mx-auto px-4 md:px-12 py-16">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-16 py-16">
         {/* Title and Logo */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
@@ -82,7 +82,7 @@ function Project() {
             <h2 className="text-xl md:text-2xl text-gray-800 font-semibold mb-4">
               Created
             </h2>
-            <p className="text-gray-600 text-lg">July 2024</p>
+            <p className="text-gray-600 text-lg">{project.created || 'July 2024'}</p>
           </div>
         </div>
 

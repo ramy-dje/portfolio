@@ -1,6 +1,6 @@
 const programmingLanguages = [
   { name: 'JavaScript', color: '#F7DF1E', textColor: '#000', symbol: 'JS' },
-  { name: 'Python', color: '#3776AB', textColor: '#fff', symbol: 'Py' },
+  { name: 'Python', image: '/icons/python.png', color: '#3776AB', textColor: '#fff' },
   { name: 'TypeScript', color: '#3178C6', textColor: '#fff', symbol: 'TS' },
   { name: 'PHP', color: '#777BB4', textColor: '#fff', symbol: 'PHP' },
   { name: 'Java', color: '#5382A1', textColor: '#fff', symbol: 'Java' },
@@ -20,9 +20,9 @@ const programmingLanguages = [
   },
   {
     name: 'Angular',
+    image: '/icons/angular.png',
     color: '#DD0031',
     textColor: '#fff',
-    symbol: 'NG',
   },
   {
     name: 'Node.js',
@@ -38,9 +38,9 @@ const programmingLanguages = [
   },
   {
     name: 'Spring Boot',
+    image: '/icons/spring.png',
     color: '#6DB33F',
     textColor: '#fff',
-    symbol: 'SB',
   },
   {
     name: 'Redux',
@@ -123,9 +123,15 @@ const programmingLanguages = [
   },
   {
     name: 'NestJS',
+    image: '/icons/nest.js.png',
     color: '#E0234E',
     textColor: '#fff',
-    symbol: 'NS',
+  },
+  {
+    name: 'PostgreSQL',
+    image: '/icons/postgresSQL.png',
+    color: '#336791',
+    textColor: '#fff',
   },
 ];
 
@@ -157,6 +163,7 @@ const categories = [
       'Redis',
       'MySQL',
       'SQLite',
+      'PostgreSQL',
     ],
   },
   {
@@ -205,6 +212,7 @@ const projects = [
     link: 'https://tessam.netlify.app/',
     logo: '/logos/tessam.png',
     color: '#787878',
+    created: 'July 2024',
   },
   {
     name: 'VerticCity',
@@ -228,6 +236,7 @@ const projects = [
     link: 'https://drive.google.com/file/d/1O9eKu7O7xh7F00i_vEm05Z83ptAZj9Ah/view?usp=sharing',
     logo: '/logos/verticcity.png',
     color: '#7be89f',
+    created: 'July 2024',
   },
   {
     name: 'NexoManager',
@@ -255,6 +264,7 @@ I enjoyed developing this project to make restaurant stock management simpler, f
     link: 'https://nexo-manager.netlify.app/',
     logo: '/logos/nexo.png',
     color: '#F24E1E',
+    created: 'July 2024',
   },
   {
     name: 'Nova',
@@ -275,16 +285,17 @@ I enjoyed building this project to make doctor booking easy, fast, and well-orga
     link: 'https://nova-app.netlify.app/',
     logo: '/logos/nova.png',
     color: '#dda9f0',
+    created: 'July 2024',
   },
   {
     name: 'Bubble',
     description: `
-    🏫 Bubble is a comprehensive management system for kindergartens, designed to streamline daily operations.<br/>
-👥 Key Roles & Features:<br/>
-👶 Child & Class Tracking: Keep detailed records of enrollment, daily attendance, and group assignments.<br/>
-📅 Activity Scheduler: Organize daily activities, events, and lessons efficiently.<br/>
-💬 Parent Connection: Facilitate seamless updates and notes between teachers and parents.<br/>
-📊 Admin Dashboard: Monitor operations, staff details, and class capacity in real time.`,
+    Bubble is a comprehensive management system for kindergartens, designed to streamline daily operations.<br/>
+Key Roles & Features:<br/>
+Child & Class Tracking: Keep detailed records of enrollment, daily attendance, and group assignments.<br/>
+Activity Scheduler: Organize daily activities, events, and lessons efficiently.<br/>
+Parent Connection: Facilitate seamless updates and notes between teachers and parents.<br/>
+Admin Dashboard: Monitor operations, staff details, and class capacity in real time.`,
     images: [
       '/bubble/1.png',
       '/bubble/2.png',
@@ -294,22 +305,24 @@ I enjoyed building this project to make doctor booking easy, fast, and well-orga
       '/bubble/6.png',
     ],
     techStack: [
-      { name: 'Angular', color: '#DD0031', textColor: '#fff', symbol: 'NG' },
-      { name: 'Spring Boot', color: '#6DB33F', textColor: '#fff', symbol: 'SB' },
+      { name: 'Angular', image: '/icons/angular.png' },
+      { name: 'Spring Boot', image: '/icons/spring.png' },
+      { name: 'PostgreSQL', image: '/icons/postgresSQL.png' },
     ],
     link: '#',
     logo: '/logos/bubble.png',
     color: '#99CCD3',
+    created: '2026',
   },
   {
     name: 'Madar',
     description: `
-    🏢 A sleek corporate website representing Madar, one of the largest and most influential companies in Algeria.<br/>
-🌟 Key Features:<br/>
-✨ Premium Design: Modern layout with high-quality visual components and rich typography.<br/>
-🚀 Fast Performance: Built with Next.js for server-side rendering and rapid page loads.<br/>
-📱 Fully Responsive: Seamless user experience optimized across all device screens.<br/>
-🌐 Company Portfolio: Comprehensive representation of company holdings, history, and achievements.`,
+    A sleek corporate website representing Madar, one of the largest and most influential companies in Algeria.<br/>
+Key Features:<br/>
+Premium Design: Modern layout with high-quality visual components and rich typography.<br/>
+Fast Performance: Built with Next.js for server-side rendering and rapid page loads.<br/>
+Fully Responsive: Seamless user experience optimized across all device screens.<br/>
+Company Portfolio: Comprehensive representation of company holdings, history, and achievements.`,
     images: [
       '/madar/1.png',
       '/madar/2.png',
@@ -325,16 +338,17 @@ I enjoyed building this project to make doctor booking easy, fast, and well-orga
     link: '#',
     logo: '/logos/madar.png',
     color: '#1E3A8A',
+    created: '2025',
   },
   {
     name: 'Kalam',
     description: `
-    ✍️ Kalam is a modern, high-performance rich text editor designed for developers and content creators.<br/>
-🌟 Key Features:<br/>
-📝 Interactive Editing: Fully powered by Tiptap for seamless visual formatting, lists, tables, and code blocks.<br/>
-🔒 Secure API: Built with a Laravel backend to handle user authentication, file uploads, and document storage.<br/>
-⚡ SPA Interface: Uses Next.js to provide an instant, lag-free writing and saving experience.<br/>
-📂 Document Management: Easily organize, save, edit, and export your writing projects.`,
+    Kalam is a modern, high-performance rich text editor designed for developers and content creators.<br/>
+Key Features:<br/>
+Interactive Editing: Fully powered by Tiptap for seamless visual formatting, lists, tables, and code blocks.<br/>
+Secure API: Built with a Laravel backend to handle user authentication, file uploads, and document storage.<br/>
+SPA Interface: Uses Next.js to provide an instant, lag-free writing and saving experience.<br/>
+Document Management: Easily organize, save, edit, and export your writing projects.`,
     images: [
       '/kalam/1.png',
       '/kalam/2.png',
@@ -346,22 +360,23 @@ I enjoyed building this project to make doctor booking easy, fast, and well-orga
     ],
     techStack: [
       { name: 'Next.js', image: '/icons/next.png' },
-      { name: 'Tiptap', color: '#0D0D0D', textColor: '#fff', symbol: 'TT' },
       { name: 'Laravel', image: '/icons/laravel.png' },
+      { name: 'PostgreSQL', image: '/icons/postgresSQL.png' },
     ],
     link: '#',
     logo: '/logos/kalam.png',
     color: '#66C6FF',
+    created: '2026',
   },
   {
     name: 'EcoSmart',
     description: `
-    🛒 EcoSmart is a robust e-commerce management system built to coordinate sales, inventory, and analytics.<br/>
-🌟 Key Features:<br/>
-📈 Business Analytics: Dashboards showing sales trends, popular items, and stock depletion rates.<br/>
-📦 Inventory Management: Track product levels, manage incoming supply shipments, and trigger low-stock alerts.<br/>
-💳 Order Processing: Streamlined system to handle incoming orders from placement to shipping status.<br/>
-⚙️ Scalable Backend: Powered by Spring Boot for secure enterprise data handling.`,
+    EcoSmart is a robust e-commerce management system built to coordinate sales, inventory, and analytics.<br/>
+Key Features:<br/>
+Business Analytics: Dashboards showing sales trends, popular items, and stock depletion rates.<br/>
+Inventory Management: Track product levels, manage incoming supply shipments, and trigger low-stock alerts.<br/>
+Order Processing: Streamlined system to handle incoming orders from placement to shipping status.<br/>
+Scalable Backend: Powered by Spring Boot for secure enterprise data handling.`,
     images: [
       '/ecosmart/1.png',
       '/ecosmart/2.png',
@@ -373,21 +388,23 @@ I enjoyed building this project to make doctor booking easy, fast, and well-orga
     ],
     techStack: [
       { name: 'Next.js', image: '/icons/next.png' },
-      { name: 'Spring Boot', color: '#6DB33F', textColor: '#fff', symbol: 'SB' },
+      { name: 'Spring Boot', image: '/icons/spring.png' },
+      { name: 'PostgreSQL', image: '/icons/postgresSQL.png' },
     ],
     link: '#',
     logo: '/logos/ecosmart.jpg',
     color: '#BCD1FF',
+    created: '2026',
   },
   {
     name: 'Elbay Hotel',
     description: `
-    🏨 A premium hotel landing page and guest reservation system, designed to elevate the online booking experience.<br/>
-🌟 Key Features:<br/>
-🛏️ Room Showcases: Beautiful displays of rooms, luxury suites, and guest amenities.<br/>
-📅 Reservation System: User-friendly booking calendar to select check-in and check-out dates.<br/>
-✨ Brand Identity: Sophisticated styling and layout representing the hotel's luxury standard.<br/>
-🗺️ Location & Contact: Easy integration of local maps, contact forms, and FAQ guides.`,
+    A premium hotel landing page and guest reservation system, designed to elevate the online booking experience.<br/>
+Key Features:<br/>
+Room Showcases: Beautiful displays of rooms, luxury suites, and guest amenities.<br/>
+Reservation System: User-friendly booking calendar to select check-in and check-out dates.<br/>
+Brand Identity: Sophisticated styling and layout representing the hotel's luxury standard.<br/>
+Location & Contact: Easy integration of local maps, contact forms, and FAQ guides.`,
     images: [
       '/elbey hotel/1.png',
       '/elbey hotel/2.png',
@@ -403,16 +420,17 @@ I enjoyed building this project to make doctor booking easy, fast, and well-orga
     link: '#',
     logo: '/logos/elbay.png',
     color: '#FFC66D',
+    created: '2025',
   },
   {
     name: 'Hotel Manager',
     description: `
-    💼 Hotel Manager is a powerful, end-to-end hotel operations management suite designed for hotel staff and administrators.<br/>
-🌟 Key Features:<br/>
-🔑 Booking Operations: Handle guest check-ins, check-outs, room transfers, and room statuses in real-time.<br/>
-🧹 Housekeeping & Maintenance: Assign tasks to staff and update room cleanliness records dynamically.<br/>
-💳 Billing & Invoices: Generate comprehensive client receipts, track payments, and manage hotel services charges.<br/>
-🛡️ Multi-Role System: Distinct dashboards for admins, front desk receptionists, and service personnel.`,
+    Hotel Manager is a powerful, end-to-end hotel operations management suite designed for hotel staff and administrators.<br/>
+Key Features:<br/>
+Booking Operations: Handle guest check-ins, check-outs, room transfers, and room statuses in real-time.<br/>
+Housekeeping & Maintenance: Assign tasks to staff and update room cleanliness records dynamically.<br/>
+Billing & Invoices: Generate comprehensive client receipts, track payments, and manage hotel services charges.<br/>
+Multi-Role System: Distinct dashboards for admins, front desk receptionists, and service personnel.`,
     images: [
       '/hotel manager/1.png',
       '/hotel manager/2.png',
@@ -423,11 +441,13 @@ I enjoyed building this project to make doctor booking easy, fast, and well-orga
     ],
     techStack: [
       { name: 'Next.js', image: '/icons/next.png' },
-      { name: 'NestJS', color: '#E0234E', textColor: '#fff', symbol: 'NS' },
+      { name: 'NestJS', image: '/icons/nest.js.png' },
+      { name: 'MongoDB', image: '/icons/mongo.png' },
     ],
     link: '#',
-    logo: '',
+    logo: '/logos/elbay.png',
     color: '#0F9AAD',
+    created: '2025',
   },
 ];
 
