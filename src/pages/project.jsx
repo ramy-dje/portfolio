@@ -28,17 +28,23 @@ function Project() {
           <h1 className="text-4xl md:text-5xl font-bold leading-tight">
             {project.name}
           </h1>
-          <img
-            src={project.logo}
-            alt="logo"
-            className="w-[100px] mt-6 md:mt-0"
-          />
+          {project.logo ? (
+            <img
+              src={project.logo}
+              alt="logo"
+              className="w-[100px] mt-6 md:mt-0 object-contain max-h-[60px]"
+            />
+          ) : (
+            <div className="text-xl font-bold bg-gray-100 py-3 px-6 rounded-2xl shadow-sm border border-gray-200 mt-6 md:mt-0 text-gray-700 flex items-center gap-2">
+              🏢 {project.name}
+            </div>
+          )}
         </div>
 
         {/* Description */}
         <div className="text-gray-600 text-lg leading-relaxed mb-16 space-y-4">
           {project.description.split('<br/>').map((line, i) => (
-            <p key={i}>{line}</p>
+            <p key={i} dangerouslySetInnerHTML={{ __html: line }} />
           ))}
         </div>
 
@@ -53,13 +59,19 @@ function Project() {
               {project.techStack.map((tech, i) => (
                 <div
                   key={i}
-                  className="h-12 w-12 rounded-full bg-gray-100 p-2 shadow-sm"
+                  className="h-12 w-12 rounded-full bg-gray-100 p-2 shadow-sm flex items-center justify-center shrink-0 border border-gray-200 hover:scale-105 transition-transform"
+                  style={tech.image ? {} : { backgroundColor: tech.color || '#f3f4f6', color: tech.textColor || '#000' }}
+                  title={tech.name}
                 >
-                  <img
-                    src={tech.image}
-                    alt={tech.name}
-                    className="w-full h-full object-contain rounded-full"
-                  />
+                  {tech.image ? (
+                    <img
+                      src={tech.image}
+                      alt={tech.name}
+                      className="w-full h-full object-contain rounded-full"
+                    />
+                  ) : (
+                    <span className="text-xs font-extrabold tracking-tight">{tech.symbol || tech.name.substring(0, 2)}</span>
+                  )}
                 </div>
               ))}
             </div>

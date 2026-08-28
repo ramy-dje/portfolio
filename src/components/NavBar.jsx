@@ -19,11 +19,6 @@ function NavBar({ isBlack }) {
       <div className="hidden md:block">
         <div className="flex gap-8 text-xl">
           <Magnetic>
-            <a href="/#about" className="navlink ">
-              About
-            </a>
-          </Magnetic>
-          <Magnetic>
             <a href="/#skills" className="navlink">
               Skills
             </a>
@@ -36,6 +31,11 @@ function NavBar({ isBlack }) {
           <Magnetic>
             <a href="/#experience" className="navlink">
               Experience
+            </a>
+          </Magnetic>
+          <Magnetic>
+            <a href="/#testimonials" className="navlink">
+              Testimonials
             </a>
           </Magnetic>
           <Magnetic>

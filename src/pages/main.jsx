@@ -6,6 +6,7 @@ import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import MenuTrigger from '../components/menuTrigger';
 import ExperienceTimeline from '../components/timeline';
+import Testimonials from '../components/Testimonials';
 
 function Main() {
   return (
@@ -17,6 +18,7 @@ function Main() {
       <Skills />
       <Projects />
       <ExperienceTimeline />
+      <Testimonials />
       <Contact />
     </div>
   );

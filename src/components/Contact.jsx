@@ -89,27 +89,52 @@ function Contact() {
 
   return (
     <section id="contact" className="text-black md:py-16 py-10 md:px-32 px-4">
-      <h2 className="text-4xl md:text-5xl font-bold mb-16 max-w-2xl leading-snug">
-        Let’s start working on a project together
-      </h2>
+      {/* Header (matches other sections) */}
+      <div className="mb-16">
+        {/* Top meta row */}
+        <div className="mb-6">
+          <div className="flex items-center justify-between text-[13px] sm:text-sm font-medium uppercase tracking-tight text-black">
+            <span>Contact</span>
+            <span>(05)</span>
+          </div>
+          <div className="mt-2 h-px w-full bg-black"></div>
+        </div>
+
+        {/* Header layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7">
+            <h2 className="text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[80px] leading-[0.9] uppercase font-semibold tracking-tight text-black">
+              Let’s Work Together.
+            </h2>
+          </div>
+          <div className="lg:col-span-5">
+            <p className="sm:text-lg text-black/60 max-w-3xl">
+              Have a project in mind? Let’s start working on something great
+              together.
+            </p>
+          </div>
+        </div>
+      </div>
 
       <div className="flex flex-col md:flex-row md:items-start gap-16">
         {/* Form Section */}
         <div className="md:w-7/12 w-full space-y-0">
           {/* Name */}
-          <div className="border-t border-b border-gray-600 py-8 px-0 relative">
-            <div className="absolute left-0 top-8 text-gray-500 text-sm font-mono">
+          <div className="border-t border-b border-black/10 py-8 px-0 relative">
+            <div className="absolute left-0 top-8 text-black/40 text-sm font-mono">
               01
             </div>
             <div className="ml-12">
-              <label className="block text-2xl mb-4">What&apos;s your name?</label>
+              <label className="block text-xl md:text-2xl font-medium tracking-tight mb-4">
+                What&apos;s your name?
+              </label>
               <input
                 name="user_name"
                 value={formData.user_name}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="John Doe *"
-                className="w-full bg-transparent text-gray-400 placeholder:text-gray-500 text-xl outline-none"
+                className="w-full bg-transparent text-black/70 placeholder:text-black/40 text-lg outline-none"
               />
               {touched.user_name && errors.user_name && (
                 <p className="text-red-400 text-sm mt-2">{errors.user_name}</p>
@@ -118,19 +143,21 @@ function Contact() {
           </div>
 
           {/* Email */}
-          <div className="border-b border-gray-600 py-8 px-0 relative">
-            <div className="absolute left-0 top-8 text-gray-500 text-sm font-mono">
+          <div className="border-b border-black/10 py-8 px-0 relative">
+            <div className="absolute left-0 top-8 text-black/40 text-sm font-mono">
               02
             </div>
             <div className="ml-12">
-              <label className="block text-2xl mb-4">What&apos;s your email?</label>
+              <label className="block text-xl md:text-2xl font-medium tracking-tight mb-4">
+                What&apos;s your email?
+              </label>
               <input
                 name="user_email"
                 value={formData.user_email}
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="john@doe.com *"
-                className="w-full bg-transparent text-gray-400 placeholder:text-gray-500 text-xl outline-none"
+                className="w-full bg-transparent text-black/70 placeholder:text-black/40 text-lg outline-none"
               />
               {touched.user_email && errors.user_email && (
                 <p className="text-red-400 text-sm mt-2">{errors.user_email}</p>
@@ -139,12 +166,12 @@ function Contact() {
           </div>
 
           {/* Message */}
-          <div className="border-b border-gray-600 py-8 px-0 relative">
-            <div className="absolute left-0 top-8 text-gray-500 text-sm font-mono">
+          <div className="border-b border-black/10 py-8 px-0 relative">
+            <div className="absolute left-0 top-8 text-black/40 text-sm font-mono">
               03
             </div>
             <div className="ml-12">
-              <label className="block text-2xl mb-4">
+              <label className="block text-xl md:text-2xl font-medium tracking-tight mb-4">
                 What&apos;s your message?
               </label>
               <textarea
@@ -153,7 +180,7 @@ function Contact() {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 placeholder="Tell me how I can help you *"
-                className="w-full h-32 bg-transparent text-gray-400 placeholder:text-gray-500 text-xl outline-none resize-none"
+                className="w-full h-32 bg-transparent text-black/70 placeholder:text-black/40 text-lg outline-none resize-none"
               />
               {touched.message && errors.message && (
                 <p className="text-red-400 text-sm mt-2">{errors.message}</p>
@@ -163,7 +190,7 @@ function Contact() {
 
           {/* Send Button */}
           <div className="relative h-28 mt-16">
-            <div className="absolute inset-x-0 top-1/2 h-px bg-gray-600" />
+            <div className="absolute inset-x-0 top-1/2 h-px bg-black/10" />
             <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
               <MagneticButton
                 title="Send"
@@ -175,7 +202,7 @@ function Contact() {
               />
             </div>
             {emailSentCorrectly && (
-              <p className="text-gray-400 text-lg absolute right-50 top-28 transform -translate-y-1/2">
+              <p className="text-black/50 text-base absolute right-50 top-28 transform -translate-y-1/2">
                 Thank you!
               </p>
             )}
@@ -190,18 +217,22 @@ function Contact() {
             className="w-[130px] h-[130px] rounded-full mb-8"
           />
           <div className="mb-10">
-            <h3 className="text-gray-400 text-xl mb-1">Contact</h3>
-            <p className="text-lg">+213 0782100526</p>
-            <p className="text-lg">ramyromirso@gmail.com</p>
+            <h3 className="text-black/40 text-sm uppercase tracking-tight font-medium mb-2">
+            Contact
+          </h3>
+            <p className="text-base">+213 0782100526</p>
+            <p className="text-base">ramyromirso@gmail.com</p>
           </div>
           <div>
-            <h3 className="text-gray-400 text-xl mb-2">Socials</h3>
+            <h3 className="text-black/40 text-sm uppercase tracking-tight font-medium mb-2">
+              Socials
+            </h3>
             <div className="space-y-2">
               <Magnetic modify={0.05}>
                 <a
                   href="https://www.linkedin.com/in/rami-djebeli"
                   target="_blank"
-                  className="text-lg block hover:text-[#0A66C2] transition"
+                  className="text-base block hover:text-[#0A66C2] transition"
                 >
                   LinkedIn
                 </a>
@@ -210,7 +241,7 @@ function Contact() {
                 <a
                   href="https://github.com/ramy-dje"
                   target="_blank"
-                  className="text-lg block hover:text-gray-400 transition"
+                  className="text-base block hover:text-black/50 transition"
                 >
                   GitHub
                 </a>

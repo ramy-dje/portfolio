@@ -3,6 +3,8 @@ const programmingLanguages = [
   { name: 'Python', color: '#3776AB', textColor: '#fff', symbol: 'Py' },
   { name: 'TypeScript', color: '#3178C6', textColor: '#fff', symbol: 'TS' },
   { name: 'PHP', color: '#777BB4', textColor: '#fff', symbol: 'PHP' },
+  { name: 'Java', color: '#5382A1', textColor: '#fff', symbol: 'Java' },
+  { name: 'Dart', color: '#0175C2', textColor: '#fff', symbol: 'Dart' },
   // 🖥️ Web Development
   {
     name: 'ReactJS',
@@ -17,6 +19,12 @@ const programmingLanguages = [
     textColor: '#000',
   },
   {
+    name: 'Angular',
+    color: '#DD0031',
+    textColor: '#fff',
+    symbol: 'NG',
+  },
+  {
     name: 'Node.js',
     image: '/icons/node.png',
     color: '#3C873A',
@@ -27,6 +35,12 @@ const programmingLanguages = [
     image: '/icons/express.png',
     color: '#CCCCCC',
     textColor: '#000',
+  },
+  {
+    name: 'Spring Boot',
+    color: '#6DB33F',
+    textColor: '#fff',
+    symbol: 'SB',
   },
   {
     name: 'Redux',
@@ -47,6 +61,12 @@ const programmingLanguages = [
     image: '/icons/reactnative.png',
     color: '#61DAFB',
     textColor: '#000',
+  },
+  {
+    name: 'Flutter',
+    color: '#02569B',
+    textColor: '#fff',
+    symbol: 'Fl',
   },
 
   // 🛢️ Databases
@@ -96,10 +116,16 @@ const programmingLanguages = [
     textColor: '#fff',
   },
   {
-    name: 'Photoshop',
-    image: '/icons/ps.png',
-    color: '#3178C6',
+    name: 'Laravel',
+    image: '/icons/laravel.png',
+    color: '#FF2D20',
     textColor: '#fff',
+  },
+  {
+    name: 'NestJS',
+    color: '#E0234E',
+    textColor: '#fff',
+    symbol: 'NS',
   },
 ];
 
@@ -109,6 +135,7 @@ const categories = [
     items: [
       'React',
       'Next.js',
+      'Angular',
       'TypeScript',
       'JavaScript',
       'Tailwind CSS',
@@ -125,6 +152,8 @@ const categories = [
       'MongoDB',
       'PHP',
       'Laravel',
+      'Java',
+      'Spring Boot',
       'Redis',
       'MySQL',
       'SQLite',
@@ -132,7 +161,7 @@ const categories = [
   },
   {
     title: 'Mobile development',
-    items: ['React Native'],
+    items: ['React Native', 'Expo', 'Flutter', 'Dart'],
   },
   {
     title: 'Other skills',
@@ -144,7 +173,6 @@ const categories = [
       'Socket.IO',
       'Linux',
       'Figma',
-      'Photoshop',
     ],
   },
 ];
@@ -176,6 +204,7 @@ const projects = [
     ],
     link: 'https://tessam.netlify.app/',
     logo: '/logos/tessam.png',
+    color: '#787878',
   },
   {
     name: 'VerticCity',
@@ -198,6 +227,7 @@ const projects = [
     ],
     link: 'https://drive.google.com/file/d/1O9eKu7O7xh7F00i_vEm05Z83ptAZj9Ah/view?usp=sharing',
     logo: '/logos/verticcity.png',
+    color: '#7be89f',
   },
   {
     name: 'NexoManager',
@@ -224,6 +254,7 @@ I enjoyed developing this project to make restaurant stock management simpler, f
     ],
     link: 'https://nexo-manager.netlify.app/',
     logo: '/logos/nexo.png',
+    color: '#F24E1E',
   },
   {
     name: 'Nova',
@@ -243,52 +274,160 @@ I enjoyed building this project to make doctor booking easy, fast, and well-orga
     ],
     link: 'https://nova-app.netlify.app/',
     logo: '/logos/nova.png',
+    color: '#dda9f0',
   },
-
   {
-    name: 'FindDoc',
+    name: 'Bubble',
     description: `
-      🏥 A web app for booking doctor appointments, built with React.js, Node.js and MongoDB, and designed using Figma for a smooth user experience.<br/>
-      👥 Roles:<br/>
-      🧑‍⚕️ Patient : Request appointments, track status, and manage bookings.<br/>
-      👨‍⚕️ Doctor : Accept or reject appointments and manage availability.<br/>
-      👨‍💼 Admin : Oversee users, appointments, and platform settings.<br/>
-      I enjoyed developing this project, ensuring efficiency, ease of use, and a clean design for seamless healthcare management. 🚀
-    `,
+    🏫 Bubble is a comprehensive management system for kindergartens, designed to streamline daily operations.<br/>
+👥 Key Roles & Features:<br/>
+👶 Child & Class Tracking: Keep detailed records of enrollment, daily attendance, and group assignments.<br/>
+📅 Activity Scheduler: Organize daily activities, events, and lessons efficiently.<br/>
+💬 Parent Connection: Facilitate seamless updates and notes between teachers and parents.<br/>
+📊 Admin Dashboard: Monitor operations, staff details, and class capacity in real time.`,
     images: [
-      '/findDoc/1.png',
-      '/findDoc/2.png',
-      '/findDoc/3.png',
-      '/findDoc/4.png',
-      '/findDoc/5.png',
+      '/bubble/1.png',
+      '/bubble/2.png',
+      '/bubble/3.png',
+      '/bubble/4.png',
+      '/bubble/5.png',
+      '/bubble/6.png',
     ],
     techStack: [
-      { name: 'reactjs', image: '/icons/reactjs.png' },
-      { name: 'nodejs', image: '/icons/node.png' },
-      { name: 'express', image: '/icons/express.png' },
-      { name: 'mongodb', image: '/icons/mongo.png' },
+      { name: 'Angular', color: '#DD0031', textColor: '#fff', symbol: 'NG' },
+      { name: 'Spring Boot', color: '#6DB33F', textColor: '#fff', symbol: 'SB' },
     ],
-    link: 'https://finddoct.netlify.app/',
-    logo: '/logos/finddoc.png',
+    link: '#',
+    logo: '/logos/bubble.png',
+    color: '#99CCD3',
   },
   {
-    name: 'Shiek Shop',
+    name: 'Madar',
     description: `
-    🛍️ A modern e-commerce platform for fashion, built with React.js, Laravel, and MySQL, and designed using Figma for a seamless shopping experience.<br/>
-    👥 Roles:<br/>
-    🛒 Customer : Browse products, add to cart, place orders, track shipments, and leave reviews.<br/>
-    👨‍💼 Admin : Manage products, orders, users, stock, and promotions.<br/>
-    I truly enjoyed developing this project, focusing on performance, design, and user experience to create a fast, elegant, and efficient shopping platform. ✨
-    `,
-    images: ['/shiek/1.png', '/shiek/2.png', '/shiek/3.png', '/shiek/4.png'],
-    techStack: [
-      { name: 'reactjs', image: '/icons/reactjs.png' },
-      { name: 'nodejs', image: '/icons/node.png' },
-      { name: 'express', image: '/icons/express.png' },
-      { name: 'mongodb', image: '/icons/mongo.png' },
+    🏢 A sleek corporate website representing Madar, one of the largest and most influential companies in Algeria.<br/>
+🌟 Key Features:<br/>
+✨ Premium Design: Modern layout with high-quality visual components and rich typography.<br/>
+🚀 Fast Performance: Built with Next.js for server-side rendering and rapid page loads.<br/>
+📱 Fully Responsive: Seamless user experience optimized across all device screens.<br/>
+🌐 Company Portfolio: Comprehensive representation of company holdings, history, and achievements.`,
+    images: [
+      '/madar/1.png',
+      '/madar/2.png',
+      '/madar/3.png',
+      '/madar/4.png',
+      '/madar/5.png',
+      '/madar/6.png',
+      '/madar/7.png',
     ],
-    link: 'https://chiek.netlify.app/',
-    logo: '/logos/chieck.png',
+    techStack: [
+      { name: 'Next.js', image: '/icons/next.png' },
+    ],
+    link: '#',
+    logo: '/logos/madar.png',
+    color: '#1E3A8A',
+  },
+  {
+    name: 'Kalam',
+    description: `
+    ✍️ Kalam is a modern, high-performance rich text editor designed for developers and content creators.<br/>
+🌟 Key Features:<br/>
+📝 Interactive Editing: Fully powered by Tiptap for seamless visual formatting, lists, tables, and code blocks.<br/>
+🔒 Secure API: Built with a Laravel backend to handle user authentication, file uploads, and document storage.<br/>
+⚡ SPA Interface: Uses Next.js to provide an instant, lag-free writing and saving experience.<br/>
+📂 Document Management: Easily organize, save, edit, and export your writing projects.`,
+    images: [
+      '/kalam/1.png',
+      '/kalam/2.png',
+      '/kalam/3.png',
+      '/kalam/4.png',
+      '/kalam/5.png',
+      '/kalam/6.png',
+      '/kalam/7.png',
+    ],
+    techStack: [
+      { name: 'Next.js', image: '/icons/next.png' },
+      { name: 'Tiptap', color: '#0D0D0D', textColor: '#fff', symbol: 'TT' },
+      { name: 'Laravel', image: '/icons/laravel.png' },
+    ],
+    link: '#',
+    logo: '/logos/kalam.png',
+    color: '#66C6FF',
+  },
+  {
+    name: 'EcoSmart',
+    description: `
+    🛒 EcoSmart is a robust e-commerce management system built to coordinate sales, inventory, and analytics.<br/>
+🌟 Key Features:<br/>
+📈 Business Analytics: Dashboards showing sales trends, popular items, and stock depletion rates.<br/>
+📦 Inventory Management: Track product levels, manage incoming supply shipments, and trigger low-stock alerts.<br/>
+💳 Order Processing: Streamlined system to handle incoming orders from placement to shipping status.<br/>
+⚙️ Scalable Backend: Powered by Spring Boot for secure enterprise data handling.`,
+    images: [
+      '/ecosmart/1.png',
+      '/ecosmart/2.png',
+      '/ecosmart/3.png',
+      '/ecosmart/4.png',
+      '/ecosmart/5.png',
+      '/ecosmart/6.png',
+      '/ecosmart/7.png',
+    ],
+    techStack: [
+      { name: 'Next.js', image: '/icons/next.png' },
+      { name: 'Spring Boot', color: '#6DB33F', textColor: '#fff', symbol: 'SB' },
+    ],
+    link: '#',
+    logo: '/logos/ecosmart.jpg',
+    color: '#BCD1FF',
+  },
+  {
+    name: 'Elbay Hotel',
+    description: `
+    🏨 A premium hotel landing page and guest reservation system, designed to elevate the online booking experience.<br/>
+🌟 Key Features:<br/>
+🛏️ Room Showcases: Beautiful displays of rooms, luxury suites, and guest amenities.<br/>
+📅 Reservation System: User-friendly booking calendar to select check-in and check-out dates.<br/>
+✨ Brand Identity: Sophisticated styling and layout representing the hotel's luxury standard.<br/>
+🗺️ Location & Contact: Easy integration of local maps, contact forms, and FAQ guides.`,
+    images: [
+      '/elbey hotel/1.png',
+      '/elbey hotel/2.png',
+      '/elbey hotel/3.png',
+      '/elbey hotel/4.png',
+      '/elbey hotel/5.png',
+      '/elbey hotel/6.png',
+      '/elbey hotel/7.png',
+    ],
+    techStack: [
+      { name: 'Next.js', image: '/icons/next.png' },
+    ],
+    link: '#',
+    logo: '/logos/elbay.png',
+    color: '#FFC66D',
+  },
+  {
+    name: 'Hotel Manager',
+    description: `
+    💼 Hotel Manager is a powerful, end-to-end hotel operations management suite designed for hotel staff and administrators.<br/>
+🌟 Key Features:<br/>
+🔑 Booking Operations: Handle guest check-ins, check-outs, room transfers, and room statuses in real-time.<br/>
+🧹 Housekeeping & Maintenance: Assign tasks to staff and update room cleanliness records dynamically.<br/>
+💳 Billing & Invoices: Generate comprehensive client receipts, track payments, and manage hotel services charges.<br/>
+🛡️ Multi-Role System: Distinct dashboards for admins, front desk receptionists, and service personnel.`,
+    images: [
+      '/hotel manager/1.png',
+      '/hotel manager/2.png',
+      '/hotel manager/3.png',
+      '/hotel manager/4.png',
+      '/hotel manager/5.png',
+      '/hotel manager/6.png',
+    ],
+    techStack: [
+      { name: 'Next.js', image: '/icons/next.png' },
+      { name: 'NestJS', color: '#E0234E', textColor: '#fff', symbol: 'NS' },
+    ],
+    link: '#',
+    logo: '',
+    color: '#0F9AAD',
   },
 ];
 

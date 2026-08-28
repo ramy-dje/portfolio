@@ -3,49 +3,46 @@ import { Timeline } from './ui/timeline';
 
 const experiences = [
   {
-    title: 'React Native Developer – BigNova Company',
-    content: (
-      <div className="text-sm md:text-base text-gray-100 dark:text-neutral-300">
-        Working on various mobile applications using React Native, Expo, and TypeScript.
-        Developing cross-platform solutions with modern mobile development practices
-        and delivering high-quality user experiences.
-        <p className="mt-2 text-xs text-gray-300">November 2025 — Present</p>
-      </div>
-    ),
+    title: 'Full Stack Developer · Big Nova Company',
+    location: 'Remote · Full-time',
+    period: 'Nov 2025 – Present',
+    bullets: [
+      'Engineered mobile apps, admin dashboards, and internal tools with a team of 10 for Algerian and French clients.',
+      'Optimized API performance and front-end rendering to resolve key user-facing bottlenecks.',
+      'Built reliable REST APIs, authentication flows, and real-time features across production systems.',
+      'Collaborated closely with designers to implement UI features and streamline review cycles.',
+    ],
   },
   {
-    title: 'Full‑Stack Developer – Black and Yellow',
-    content: (
-      <div className="text-sm md:text-base text-gray-100 dark:text-neutral-300">
-        Working full-time on modern full-stack applications using technologies
-        like Next.js, Node.js, Nest.js and MongoDB. Contributing to scalable
-        frontends and backend APIs with clean architecture.
-        <p className="mt-2 text-xs text-gray-300">January 2025 — October 2025</p>
-      </div>
-    ),
+    title: 'Full Stack Developer · Nexo Pizza',
+    location: 'Remote · Part-time',
+    period: 'Oct 2025 – Jun 2026',
+    bullets: [
+      'Built a full MERN stock ecosystem: inventory, supplier integration, driver delivery app, and POS-connected admin dashboard.',
+      'Integrated real-time Telegram alerts for low stock and expiration, replacing manual checking.',
+      'Created an internal task management platform for staff operations and workload visibility.',
+      'Managed Docker and Nginx deployments with GitHub Actions CI/CD pipelines.',
+    ],
   },
   {
-    title: 'Full‑Stack Intern – Evact',
-    content: (
-      <div className="text-sm md:text-base text-gray-100 dark:text-neutral-300">
-        Built a complete POS system from scratch, handling everything from
-        database modeling to frontend UI/UX and backend APIs. Delivered a fully
-        functional full-stack solution .
-        <p className="mt-2 text-xs text-gray-300">January 2024 — June 2024</p>
-      </div>
-    ),
+    title: 'Full Stack Developer · Black and Yellow',
+    location: 'Remote · Freelance',
+    period: 'Jan 2025 – Oct 2025',
+    bullets: [
+      'Delivered web solutions for 4 Algerian companies, including corporate sites, a custom blog editor, and an e-commerce platform.',
+      'Built a custom component-based rich text editor supporting embedded media and modular blocks.',
+      'Developed a hotel PMS platform covering room bookings, pricing, tax configuration, and workflow automation.',
+    ],
   },
-  /*{
-    title: "Freelance Full‑Stack Developer",
-    content: (
-      <div className="text-sm md:text-base text-gray-100 dark:text-neutral-300">
-        Building full-stack applications using React, Next.js, Node.js, MongoDB,
-        and GraphQL. Delivered scalable systems with real-time features and
-        modular codebases.
-        <p className="mt-2 text-xs text-gray-300">2023 — Present</p>
-      </div>
-    ),
-  },*/
+  {
+    title: 'Full Stack Developer Intern · Evact',
+    location: 'Constantine',
+    period: 'Jan 2024 – Jun 2024',
+    bullets: [
+      'Designed a cross-platform POS system (mobile & desktop) with offline resilience.',
+      'Implemented a customer loyalty and rewards management system to boost retention and average spend.',
+    ],
+  },
 ];
 
 function timeLine() {

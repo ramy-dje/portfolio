@@ -4,18 +4,16 @@ import { slideUp } from '../utils/animate';
 import Magnetic from '../utils/Magnetic';
 
 function About() {
-  const intro = `Creating digital solutions for brands to stand out in the digital era
-    by using the magic of code and creativity together we will set the new
-    status always on the cutting edge`;
+  const intro = `Building robust technical solutions for businesses to solve real problems in a digital world by combining engineering and craftsmanship together we will create lasting impact always focused on meaningful results`;
 
   const words = intro.split(/\s+/);
 
   return (
     <section
       id="about"
-      className="md:py-16 py-10 md:px-32 px-4 flex flex-wrap h-screen lg:text-[65px] md:text-[45px] text-[35px] gap-4"
+      className="md:py-16 py-10 md:px-32 px-4 flex flex-wrap h-screen text-[28px] sm:text-[40px] lg:text-[55px] gap-4"
     >
-      {words.map((word, index) => {
+        {words.map((word, index) => {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         const ref = useRef(null);
         // eslint-disable-next-line react-hooks/rules-of-hooks

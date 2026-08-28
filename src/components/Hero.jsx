@@ -21,7 +21,7 @@ function Hero() {
 
   return (
     <section
-      className={` h-screen flex flex-col relative`}
+      className={` h-screen flex flex-col relative overflow-y-hidden`}
       style={{ backgroundColor: theGray }}
     >
       <NavBar isBlack={false} />
@@ -46,7 +46,7 @@ function Hero() {
           </div>
         </Magnetic>
       </div>
-      <div className="text-white absolute md:top-[40%] top-[40%] md:text-3xl text-md right-4 md:right-auto md:left-6 lg:left-16 z-10 md:block hidden ">
+      <div className="text-white absolute md:top-[40%] top-[40%] md:text-3xl text-lg right-4 md:right-auto md:left-6 lg:left-16 z-10 md:block hidden ">
         <Magnetic modify={0.2}>
           <p>I am a</p>
         </Magnetic>

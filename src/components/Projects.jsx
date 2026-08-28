@@ -2,18 +2,10 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { theBlack, theRed } from '../utils/colors';
+import { projects } from '../utils/info';
 
 function Projects() {
   const navigate = useNavigate();
-
-  const projects = [
-    { title: 'TESSAM POS', src: '/tessam/1.png', color: '#787878' },
-    { title: 'VerticCity', src: '/verticCity/1.jpg', color: '#7be89f' },
-    { title: 'FindDoc', src: '/findDoc/1.png', color: '#a2aefc' },
-    { title: 'Shiek Shop', src: '/shiek/1.png', color: '#EFE8D3' },
-    { title: 'NexoManager', src: '/nexo/dashboard.png', color: '#F24E1E' },
-    { title: 'Nova', src: '/novadoc/1.png', color: '#dda9f0' },
-  ];
 
   const [modal, setModal] = useState({ active: false, index: 0 });
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
@@ -43,11 +35,30 @@ function Projects() {
       className="md:py-16 py-10 md:px-32 px-4 text-black relative"
     >
       {/* Section Title */}
-      <div className="mb-12">
-        <h2 className="text-4xl md:text-5xl font-bold mb-2">Projects</h2>
-        <p className="text-lg md:text-xl opacity-70">
-          A selection of my recent work, showcasing full-stack solutions.
-        </p>
+      <div className="mb-16">
+        {/* Top meta row */}
+        <div className="mb-6">
+          <div className="flex items-center justify-between text-[13px] sm:text-sm font-medium uppercase tracking-tight text-black">
+            <span>Work</span>
+            <span>({projects.length < 10 ? `0${projects.length}` : projects.length})</span>
+          </div>
+          <div className="mt-2 h-px w-full bg-black"></div>
+        </div>
+
+        {/* Header layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="lg:col-span-7">
+            <h2 className="text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[80px] leading-[0.9] uppercase font-semibold tracking-tight text-black">
+              Selected Projects.
+            </h2>
+          </div>
+          <div className="lg:col-span-5">
+            <p className="sm:text-lg text-black/60 max-w-3xl">
+              A selection of my recent work, showcasing full-stack solutions
+              built for real products.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Project List */}
@@ -59,40 +70,64 @@ function Projects() {
             whileHover="hover"
             onMouseEnter={() => {
               manageModal(true, i);
-              const label = project.title.split(' ').pop();
               setShowLabel(true);
             }}
             onMouseLeave={() => {
               manageModal(false, i);
               setShowLabel(false);
             }}
-            onClick={() => navigate(`/project/${project.title}`)}
-            className="group cursor-none border-b border-gray-600 pb-8 md:pb-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+            onClick={() => navigate(`/project/${project.name}`)}
+            className="group cursor-none border-b border-black/10 pb-8 md:pb-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
           >
             {/* Mobile image */}
             <img
-              src={project.src}
-              alt={project.title}
+              src={project.images[0]}
+              alt={project.name}
               className="block md:hidden w-full h-[220px] object-cover rounded-md"
             />
 
             {/* Project Title */}
-            <motion.h3
+            <motion.div
               variants={{
                 initial: { opacity: 1, x: 0 },
-                hover: { opacity: 0.6, x: -10 },
+                hover: { opacity: 0.6, x: -16 },
               }}
-              className="text-3xl md:text-5xl lg:text-6xl tracking-tight md:ml-8"
+              transition={{ duration: 0.4, ease: [0.33, 1, 0.68, 1] }}
+              className="flex items-baseline gap-4 md:gap-6 md:ml-8"
             >
-              {project.title}
-            </motion.h3>
+              <span className="text-sm md:text-base font-medium text-black/40 tabular-nums">
+                {i + 1 < 10 ? `0${i + 1}` : i + 1}
+              </span>
+              <h3 className="text-3xl md:text-5xl lg:text-6xl tracking-tight">
+                {project.name}
+              </h3>
+            </motion.div>
 
             {/* Tech Stack */}
-            <div className="flex items-center gap-3 md:mr-8">
-              <img src="/icons/reactjs.png" alt="React" className="w-7 h-7" />
-              <img src="/icons/node.png" alt="Node.js" className="w-7 h-7" />
-              <img src="/icons/mongo.png" alt="MongoDB" className="w-7 h-7" />
-              <img src="/icons/express.png" alt="Express" className="w-7 h-7" />
+            <div className="flex items-center gap-2 md:mr-8 flex-wrap md:justify-end">
+              {project.techStack?.map((tech, idx) => (
+                tech.image ? (
+                  <div key={idx} className="h-8 w-8 rounded-full bg-gray-100 p-1.5 shadow-sm flex items-center justify-center shrink-0 border border-gray-200 hover:scale-105 transition-transform" title={tech.name}>
+                    <img
+                      src={tech.image}
+                      alt={tech.name}
+                      className="w-full h-full object-contain rounded-full"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    key={idx}
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 border border-gray-250 shadow-sm hover:scale-105 transition-transform"
+                    style={{
+                      backgroundColor: tech.color || '#f3f4f6',
+                      color: tech.textColor || '#000',
+                    }}
+                    title={tech.name}
+                  >
+                    {tech.symbol || tech.name.substring(0, 2)}
+                  </div>
+                )
+              ))}
             </div>
           </motion.div>
         ))}
@@ -117,15 +152,13 @@ function Projects() {
           {projects.map((project, idx) => (
             <div
               key={`modal_${idx}`}
-              className="h-full w-full flex items-center justify-center"
+              className="h-full w-full flex items-center justify-center p-6"
               style={{ backgroundColor: project.color }}
             >
               <img
-                src={project.src}
-                width={350}
-                height={350}
-                alt={project.title}
-                className="object-contain"
+                src={project.images[0]}
+                alt={project.name}
+                className="max-w-full max-h-full object-contain rounded shadow-md"
               />
             </div>
           ))}

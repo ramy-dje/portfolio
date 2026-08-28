@@ -96,10 +96,10 @@ function MenuTrigger() {
                 </p>
                 <ul className="space-y-6 text-3xl font-light leading-normal">
                   {[
-                    { href: '/#about', label: 'About' },
                     { href: '/#skills', label: 'Skills' },
                     { href: '/#projects', label: 'Projects' },
                     { href: '/#experience', label: 'Experience' },
+                    { href: '/#testimonials', label: 'Testimonials' },
                     { href: '/#contact', label: 'Contact' },
                   ].map(({ href, label }) => (
                     <li key={href}>
