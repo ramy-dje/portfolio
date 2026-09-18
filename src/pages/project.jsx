@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import NavBar from '../components/NavBar';
 import MagneticButton from '../components/MagneticButton';
 import NextProject from '../components/NextProject';
@@ -7,6 +8,8 @@ import { projects } from '../utils/info';
 import MenuTrigger from '../components/menuTrigger';
 
 function Project() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
     return () => window.scrollTo(0, 0);
@@ -33,9 +36,9 @@ function Project() {
       <div className="text-gray-800 bg-white min-h-screen">
         <NavBar isBlack={true} />
         <div className="max-w-[1400px] mx-auto px-4 md:px-16 py-32 text-center">
-          <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
+          <h1 className="text-4xl font-bold mb-4">{t('projectPage.notFound')}</h1>
           <a href="/#projects" className="text-blue-600 underline">
-            Back to Projects
+            {t('projectPage.backToProjects')}
           </a>
         </div>
       </div>
@@ -111,7 +114,7 @@ function Project() {
           {/* Tech Stack */}
           <div className="md:w-7/12">
             <h2 className="text-xl md:text-2xl text-gray-800 font-semibold mb-4">
-              Tech Stack
+              {t('projectPage.techStack')}
             </h2>
             <div className="flex flex-wrap gap-3">
               {project.techStack?.map((tech, i) => (
@@ -147,7 +150,7 @@ function Project() {
           {/* Created At */}
           <div className="md:w-4/12">
             <h2 className="text-xl md:text-2xl text-gray-800 font-semibold mb-4">
-              Created
+              {t('projectPage.created')}
             </h2>
             <p className="text-gray-600 text-lg">
               {project.created || 'July 2024'}
@@ -162,11 +165,11 @@ function Project() {
               href={project.link}
               target="_blank"
               rel="noreferrer"
-              className="absolute xl:right-[-80px] right-0 -top-16 z-20"
+              className="absolute xl:end-[-80px] end-0 -top-16 z-20"
             >
               <MagneticButton
                 isSMall={window.innerWidth < 768}
-                title={'Live Site'}
+                title={t('projectPage.liveSite')}
               />
             </a>
           )}

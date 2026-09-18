@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { theBlack, theRed } from '../utils/colors';
 import { projects } from '../utils/info';
 
 function Projects() {
+  const { t } = useTranslation();
   const navigate = useNavigate();
 
   const [modal, setModal] = useState({ active: false, index: 0 });
@@ -39,7 +41,7 @@ function Projects() {
         {/* Top meta row */}
         <div className="mb-6">
           <div className="flex items-center justify-between text-[13px] sm:text-sm font-medium uppercase tracking-tight text-black">
-            <span>Work</span>
+            <span>{t('projects.meta')}</span>
             <span>({projects.length < 10 ? `0${projects.length}` : projects.length})</span>
           </div>
           <div className="mt-2 h-px w-full bg-black"></div>
@@ -49,13 +51,12 @@ function Projects() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7">
             <h2 className="text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[80px] leading-[0.9] uppercase font-semibold tracking-tight text-black">
-              Selected Projects.
+              {t('projects.title')}
             </h2>
           </div>
           <div className="lg:col-span-5">
             <p className="sm:text-lg text-black/60 max-w-3xl">
-              A selection of my recent work, showcasing full-stack solutions
-              built for real products.
+              {t('projects.description')}
             </p>
           </div>
         </div>
@@ -182,7 +183,7 @@ function Projects() {
               boxShadow: `0 0 20px rgba(0,0,0,0.4)`,
             }}
           >
-            View
+            {t('projects.view')}
           </motion.div>
         )}
       </AnimatePresence>

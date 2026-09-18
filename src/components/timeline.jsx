@@ -1,7 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Timeline } from './ui/timeline';
 
-const experiences = [
+const defaultExperiences = [
   {
     title: 'Full Stack Developer · Big Nova Company',
     location: 'Remote · Full-time',
@@ -43,8 +44,15 @@ const experiences = [
   },
 ];
 
-function timeLine() {
-  return <Timeline data={experiences} />;
+function TimeLine() {
+  const { t } = useTranslation();
+  const localizedExperiences = t('timeline.experiences', { returnObjects: true });
+  const data = Array.isArray(localizedExperiences) && localizedExperiences.length > 0
+    ? localizedExperiences
+    : defaultExperiences;
+
+  return <Timeline data={data} />;
 }
 
-export default timeLine;
+export default TimeLine;
+

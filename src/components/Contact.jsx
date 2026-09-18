@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { theBlack } from '../utils/colors';
 import MagneticButton from './MagneticButton';
 import Magnetic from '../utils/Magnetic';
 import emailjs from '@emailjs/browser';
 
 function Contact() {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     user_name: '',
     user_email: '',
@@ -41,13 +44,13 @@ function Contact() {
 
   const validate = (data) => {
     const newErrors = {};
-    if (!data.user_name.trim()) newErrors.user_name = 'Name is required';
+    if (!data.user_name.trim()) newErrors.user_name = t('contact.errors.nameRequired');
     if (!data.user_email.trim()) {
-      newErrors.user_email = 'Email is required';
+      newErrors.user_email = t('contact.errors.emailRequired');
     } else if (!/^\S+@\S+\.\S+$/.test(data.user_email)) {
-      newErrors.user_email = 'Invalid email format';
+      newErrors.user_email = t('contact.errors.invalidEmail');
     }
-    if (!data.message.trim()) newErrors.message = 'Message is required';
+    if (!data.message.trim()) newErrors.message = t('contact.errors.messageRequired');
     return newErrors;
   };
 
@@ -94,8 +97,8 @@ function Contact() {
         {/* Top meta row */}
         <div className="mb-6">
           <div className="flex items-center justify-between text-[13px] sm:text-sm font-medium uppercase tracking-tight text-black">
-            <span>Contact</span>
-            <span>(05)</span>
+            <span>{t('contact.meta')}</span>
+            <span>{t('contact.metaNumber')}</span>
           </div>
           <div className="mt-2 h-px w-full bg-black"></div>
         </div>
@@ -104,13 +107,12 @@ function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7">
             <h2 className="text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[80px] leading-[0.9] uppercase font-semibold tracking-tight text-black">
-              Let’s Work Together.
+              {t('contact.title')}
             </h2>
           </div>
           <div className="lg:col-span-5">
             <p className="sm:text-lg text-black/60 max-w-3xl">
-              Have a project in mind? Let’s start working on something great
-              together.
+              {t('contact.description')}
             </p>
           </div>
         </div>
@@ -121,19 +123,19 @@ function Contact() {
         <div className="md:w-7/12 w-full space-y-0">
           {/* Name */}
           <div className="border-t border-b border-black/10 py-8 px-0 relative">
-            <div className="absolute left-0 top-8 text-black/40 text-sm font-mono">
+            <div className="absolute start-0 top-8 text-black/40 text-sm font-mono">
               01
             </div>
-            <div className="ml-12">
+            <div className="ms-12">
               <label className="block text-xl md:text-2xl font-medium tracking-tight mb-4">
-                What&apos;s your name?
+                {t('contact.form.nameQuestion')}
               </label>
               <input
                 name="user_name"
                 value={formData.user_name}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                placeholder="John Doe *"
+                placeholder={t('contact.form.namePlaceholder')}
                 className="w-full bg-transparent text-black/70 placeholder:text-black/40 text-lg outline-none"
               />
               {touched.user_name && errors.user_name && (
@@ -144,19 +146,19 @@ function Contact() {
 
           {/* Email */}
           <div className="border-b border-black/10 py-8 px-0 relative">
-            <div className="absolute left-0 top-8 text-black/40 text-sm font-mono">
+            <div className="absolute start-0 top-8 text-black/40 text-sm font-mono">
               02
             </div>
-            <div className="ml-12">
+            <div className="ms-12">
               <label className="block text-xl md:text-2xl font-medium tracking-tight mb-4">
-                What&apos;s your email?
+                {t('contact.form.emailQuestion')}
               </label>
               <input
                 name="user_email"
                 value={formData.user_email}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                placeholder="john@doe.com *"
+                placeholder={t('contact.form.emailPlaceholder')}
                 className="w-full bg-transparent text-black/70 placeholder:text-black/40 text-lg outline-none"
               />
               {touched.user_email && errors.user_email && (
@@ -167,19 +169,19 @@ function Contact() {
 
           {/* Message */}
           <div className="border-b border-black/10 py-8 px-0 relative">
-            <div className="absolute left-0 top-8 text-black/40 text-sm font-mono">
+            <div className="absolute start-0 top-8 text-black/40 text-sm font-mono">
               03
             </div>
-            <div className="ml-12">
+            <div className="ms-12">
               <label className="block text-xl md:text-2xl font-medium tracking-tight mb-4">
-                What&apos;s your message?
+                {t('contact.form.messageQuestion')}
               </label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 onBlur={handleBlur}
-                placeholder="Tell me how I can help you *"
+                placeholder={t('contact.form.messagePlaceholder')}
                 className="w-full h-32 bg-transparent text-black/70 placeholder:text-black/40 text-lg outline-none resize-none"
               />
               {touched.message && errors.message && (
@@ -191,9 +193,9 @@ function Contact() {
           {/* Send Button */}
           <div className="relative h-28 mt-16">
             <div className="absolute inset-x-0 top-1/2 h-px bg-black/10" />
-            <div className="absolute top-1/2 right-0 transform -translate-y-1/2">
+            <div className="absolute top-1/2 end-0 transform -translate-y-1/2">
               <MagneticButton
-                title="Send"
+                title={t('contact.form.send')}
                 isSMall={isMobile}
                 onClick={sendEmail}
                 loading={isSending}
@@ -202,8 +204,8 @@ function Contact() {
               />
             </div>
             {emailSentCorrectly && (
-              <p className="text-black/50 text-base absolute right-50 top-28 transform -translate-y-1/2">
-                Thank you!
+              <p className="text-black/50 text-base absolute end-50 top-28 transform -translate-y-1/2">
+                {t('contact.form.thankYou')}
               </p>
             )}
           </div>
@@ -218,14 +220,14 @@ function Contact() {
           />
           <div className="mb-10">
             <h3 className="text-black/40 text-sm uppercase tracking-tight font-medium mb-2">
-            Contact
-          </h3>
-            <p className="text-base">+213 0782100526</p>
-            <p className="text-base">ramyromirso@gmail.com</p>
+              {t('contact.contactDetails')}
+            </h3>
+            <p className="text-base font-sans" dir="ltr">+213 0782100526</p>
+            <p className="text-base font-sans" dir="ltr">ramyromirso@gmail.com</p>
           </div>
           <div>
             <h3 className="text-black/40 text-sm uppercase tracking-tight font-medium mb-2">
-              Socials
+              {t('contact.socials')}
             </h3>
             <div className="space-y-2">
               <Magnetic modify={0.05}>
@@ -255,3 +257,4 @@ function Contact() {
 }
 
 export default Contact;
+

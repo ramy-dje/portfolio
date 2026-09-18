@@ -1,8 +1,9 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { slideUp } from '../utils/animate';
 
-const testimonials = [
+const defaultTestimonials = [
   {
     name: 'Delimi Nadir',
     role: 'CEO of Evact',
@@ -31,6 +32,13 @@ const testimonials = [
     quote:
       "Travailler avec Rami chez BIGNOVA a été un réel plaisir. Rigoureux, fiable et toujours à l'écoute, il transforme chaque retour en améliorations concrètes. Au-delà de ses compétences techniques, il apporte une vraie dynamique positive et collaborative à l'équipe.",
   },
+];
+
+const testimonialImages = [
+  '/ceos/nadir.jpg',
+  '/ceos/rafik.jpg',
+  '/ceos/sami.jpg',
+  '/ceos/reda.png',
 ];
 
 const getInitials = (name) =>
@@ -62,8 +70,17 @@ const QuoteIcon = ({ dark }) => (
 );
 
 function Testimonials() {
+  const { t } = useTranslation();
   const containerRef = useRef(null);
   const inView = useInView(containerRef, { once: true, amount: 0.15 });
+
+  const localizedItems = t('testimonials.items', { returnObjects: true });
+  const items = Array.isArray(localizedItems) && localizedItems.length > 0
+    ? localizedItems.map((item, idx) => ({
+        ...item,
+        image: testimonialImages[idx] || item.image,
+      }))
+    : defaultTestimonials;
 
   return (
     <section
@@ -76,8 +93,8 @@ function Testimonials() {
           {/* Top meta row */}
           <div className="mb-6">
             <div className="flex items-center justify-between text-[13px] sm:text-sm font-medium uppercase tracking-tight text-black">
-              <span>PROOF</span>
-              <span>(04)</span>
+              <span>{t('testimonials.meta')}</span>
+              <span>{t('testimonials.metaNumber')}</span>
             </div>
             <div className="mt-2 h-px w-full bg-black"></div>
           </div>
@@ -86,13 +103,12 @@ function Testimonials() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
               <h3 className="text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[80px] leading-[0.9] uppercase font-semibold tracking-tight text-black">
-                What Companies and Clients Say.
+                {t('testimonials.title')}
               </h3>
             </div>
             <div className="lg:col-span-5">
               <p className="sm:text-lg text-black/60 max-w-3xl">
-                Feedback from companies, founders, and clients I've worked
-                with—reflecting our shared commitment to building exceptional products.
+                {t('testimonials.description')}
               </p>
             </div>
           </div>
@@ -101,9 +117,9 @@ function Testimonials() {
         {/* Cards container - 1 row on large screens */}
         <div
           ref={containerRef}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 rounded-2xl overflow-hidden shadow-md ring-1 ring-black/10"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-0 rounded-2xl overflow-hidden shadow-md ring-1 ring-black/10 text-start"
         >
-          {testimonials.map((testimonial, index) => {
+          {items.map((testimonial, index) => {
             const isDark = index % 2 === 0;
 
             return (

@@ -1,10 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { theBlack, theRed } from '../utils/colors';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Magnetic from '../utils/Magnetic';
 
 function NextProject({ name, image }) {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   return (
     <section
@@ -13,7 +15,7 @@ function NextProject({ name, image }) {
     >
       {/* Label */}
       <p className="text-center text-sm uppercase tracking-wide text-gray-400">
-        Next Project
+        {t('projectPage.nextProject')}
       </p>
 
       {/* Project Title */}
@@ -51,7 +53,7 @@ function NextProject({ name, image }) {
               className="relative w-[135px] h-[70px] rounded-full border border-white overflow-hidden group cursor-pointer"
             >
               <span className="relative z-10 text-white font-medium tracking-wide">
-                View it
+                {t('projectPage.viewIt')}
               </span>
               <span
                 className="absolute inset-0 rounded-full scale-y-0 origin-bottom transition-transform duration-300 ease-in-out group-hover:scale-y-100"
@@ -66,3 +68,4 @@ function NextProject({ name, image }) {
 }
 
 export default NextProject;
+

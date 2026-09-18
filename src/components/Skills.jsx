@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { slideUp } from '../utils/animate';
 import Magnetic from '../utils/Magnetic';
 import { programmingLanguages, categories } from '../utils/info';
@@ -29,6 +30,7 @@ const categoryIcons = [
 ];
 
 function Skills() {
+  const { t } = useTranslation();
   const descriptionRef = useRef(null);
   const containerRef = useRef(null);
   const frameRef = useRef(0);
@@ -38,8 +40,7 @@ function Skills() {
     amount: 0.3,
   });
 
-  const description =
-    'I build high-quality digital solutions using a modern and efficient tech stack.';
+  const description = t('skills.description');
   const words = description.split(/\s+/);
 
   const [positions, setPositions] = useState([]);
@@ -162,8 +163,8 @@ function Skills() {
         {/* Top meta row */}
         <div className="mb-6">
           <div className="flex items-center justify-between text-[13px] sm:text-sm font-medium uppercase tracking-tight text-black">
-            <span>Tech Stack</span>
-            <span>(01)</span>
+            <span>{t('skills.meta')}</span>
+            <span>{t('skills.metaNumber')}</span>
           </div>
           <div className="mt-2 h-px w-full bg-black"></div>
         </div>
@@ -172,7 +173,7 @@ function Skills() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7">
             <h2 className="text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[80px] leading-[0.9] uppercase font-semibold tracking-tight text-black">
-              Skills & Technologies.
+              {t('skills.title')}
             </h2>
           </div>
           <div ref={descriptionRef} className="lg:col-span-5">
@@ -196,36 +197,44 @@ function Skills() {
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
         {/* Left: 2 lines x 2 columns category cards (white background, gray border) */}
         <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {categories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              custom={index}
-              variants={slideUp}
-              initial="initial"
-              animate={descriptionInView ? 'animate' : 'initial'}
-              className="bg-white border border-gray-200 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-gray-300"
-            >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg sm:text-xl text-black font-semibold tracking-tight">
-                    {category.title}
-                  </h3>
-                  <div className="w-9 h-9 rounded-full bg-black flex items-center justify-center shrink-0">
-                    {categoryIcons[index]}
+          {categories.map((category, index) => {
+            const categoryKeys = ['frontend', 'backend', 'mobile', 'other'];
+            const categoryTitle =
+              categoryKeys[index]
+                ? t(`skills.categories.${categoryKeys[index]}`, category.title)
+                : category.title;
+
+            return (
+              <motion.div
+                key={category.title}
+                custom={index}
+                variants={slideUp}
+                initial="initial"
+                animate={descriptionInView ? 'animate' : 'initial'}
+                className="bg-white border border-gray-200 rounded-3xl p-6 flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-gray-300"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-lg sm:text-xl text-black font-semibold tracking-tight">
+                      {categoryTitle}
+                    </h3>
+                    <div className="w-9 h-9 rounded-full bg-black flex items-center justify-center shrink-0">
+                      {categoryIcons[index]}
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {category.items.map((item, i) => (
+                      <Magnetic modify={0.1} key={i}>
+                        <span className="inline-block bg-gray-50 text-black/80 font-medium text-xs sm:text-sm px-3 py-1.5 rounded-full border border-gray-200 hover:border-gray-300 transition-colors">
+                          {item}
+                        </span>
+                      </Magnetic>
+                    ))}
                   </div>
                 </div>
-                <div className="flex flex-wrap gap-2 mt-3">
-                  {category.items.map((item, i) => (
-                    <Magnetic modify={0.1} key={i}>
-                      <span className="inline-block bg-gray-50 text-black/80 font-medium text-xs sm:text-sm px-3 py-1.5 rounded-full border border-gray-200 hover:border-gray-300 transition-colors">
-                        {item}
-                      </span>
-                    </Magnetic>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Right: Black Div with original glow items and untouched physics logic */}
@@ -292,10 +301,10 @@ function Skills() {
           {/* Absolute Bottom Text Overlay (non-blocking pointer-events-none) */}
           <div className="absolute bottom-6 left-6 right-6 z-10 pointer-events-none">
             <h3 className="text-xl sm:text-2xl font-bold tracking-tight text-white">
-              My Language Pool.
+              {t('skills.poolTitle')}
             </h3>
             <p className="text-xs sm:text-sm text-white/60 mt-1 max-w-xs leading-relaxed">
-              Technologies I use in my day-to-day work — with new tools and skills continuously being added.
+              {t('skills.poolDesc')}
             </p>
           </div>
         </div>

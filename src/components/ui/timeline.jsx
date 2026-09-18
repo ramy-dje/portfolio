@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { useScroll, useTransform, motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { theRed } from '../../utils/colors';
 
 const ClockIcon = () => (
@@ -27,7 +28,7 @@ const cardMotion = {
 };
 
 const Card = ({ step, alignRight }) => (
-  <div className="bg-white border border-gray-200 rounded-3xl p-8 transition-all duration-300 hover:shadow-md hover:border-gray-300">
+  <div className="bg-white border border-gray-200 rounded-3xl p-8 transition-all duration-300 hover:shadow-md hover:border-gray-300 text-start">
     {step.location && (
       <div
         className={`flex mb-6 items-center ${
@@ -43,7 +44,7 @@ const Card = ({ step, alignRight }) => (
       {step.title}
     </h3>
     {Array.isArray(step.bullets) ? (
-      <ul className="text-sm md:text-base leading-relaxed text-black/70 mb-6 space-y-2.5 text-left">
+      <ul className="text-sm md:text-base leading-relaxed text-black/70 mb-6 space-y-2.5 text-start">
         {step.bullets.map((bullet, idx) => (
           <li key={idx} className="flex items-start gap-2.5">
             <span className="text-black/40 font-bold mt-0.5 shrink-0">•</span>
@@ -77,6 +78,7 @@ const Dot = () => (
 );
 
 export const Timeline = ({ data }) => {
+  const { t } = useTranslation();
   const containerRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -96,8 +98,8 @@ export const Timeline = ({ data }) => {
           {/* Top meta row */}
           <div className="mb-6">
             <div className="flex items-center justify-between text-[13px] sm:text-sm font-medium uppercase tracking-tight text-black">
-              <span>My Journey</span>
-              <span>(03)</span>
+              <span>{t('timeline.meta')}</span>
+              <span>{t('timeline.metaNumber')}</span>
             </div>
             <div className="mt-2 h-px w-full bg-black"></div>
           </div>
@@ -106,13 +108,12 @@ export const Timeline = ({ data }) => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
               <h2 className="text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[80px] leading-[0.9] uppercase font-semibold tracking-tight text-black">
-                From Vision to Reality.
+                {t('timeline.title')}
               </h2>
             </div>
             <div className="lg:col-span-5">
               <p className="sm:text-lg text-black/60 max-w-3xl">
-                A look back at the milestones and partnerships that shaped my
-                path as a developer.
+                {t('timeline.description')}
               </p>
             </div>
           </div>

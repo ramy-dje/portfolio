@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import Magnetic from '../utils/Magnetic';
 import { theBlack, theRed } from '../utils/colors';
+import LanguageSelector from './LanguageSelector';
 
 function MenuTrigger() {
+  const { t } = useTranslation();
   const [showButton, setShowButton] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState(
     window.location.hash || '#home'
   );
-  const [shouldShowBorder,setShouldShowBorder] = useState(false)
+  const [shouldShowBorder, setShouldShowBorder] = useState(false);
+
   useEffect(() => {
     const handleHashChange = () =>
       setCurrentHash(window.location.hash || '#home');
@@ -25,7 +29,6 @@ function MenuTrigger() {
       setShouldShowBorder(shouldShowBorder);
     };
 
-    // Run once on mount
     checkVisibility();
 
     window.addEventListener('scroll', checkVisibility);
@@ -53,7 +56,9 @@ function MenuTrigger() {
           >
             <Magnetic modify={0.4}>
               <div
-                className={`md:w-20 w-16 md:h-20 h-16 rounded-full flex flex-col items-center justify-center gap-2 cursor-pointer ${shouldShowBorder && 'border-[1px] border-gray-100'}`}
+                className={`md:w-20 w-16 md:h-20 h-16 rounded-full flex flex-col items-center justify-center gap-2 cursor-pointer ${
+                  shouldShowBorder && 'border-[1px] border-gray-100'
+                }`}
                 style={{ backgroundColor: theBlack }}
               >
                 <div className="md:w-8 w-6 h-[2px] bg-white rounded-full" />
@@ -72,10 +77,11 @@ function MenuTrigger() {
             animate={{ x: '0%' }}
             exit={{ x: '100%' }}
             transition={{ duration: 0.4 }}
-            className="fixed top-0 right-0 h-full md:w-[35%] w-full bg-[#111] text-white p-8 z-60 shadow-2xl"
+            className="fixed top-0 right-0 h-full md:w-[35%] w-full bg-[#111] text-white p-8 z-60 shadow-2xl overflow-y-auto"
           >
-            {/* Close Button */}
-            <div className="flex justify-end mb-6">
+            {/* Close & Language Button Row */}
+            <div className="flex items-center justify-between mb-6">
+              <LanguageSelector isBlack={false} />
               <Magnetic modify={0.4}>
                 <div
                   onClick={toggleMenu}
@@ -88,20 +94,20 @@ function MenuTrigger() {
             </div>
 
             {/* Menu Content */}
-            <div className="space-y-12">
+            <div className="space-y-10">
               {/* Navigation */}
               <div>
                 <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">
-                  Navigation
+                  {t('menu.navigation')}
                 </p>
                 <div className="w-full h-px bg-white/10 mb-6"></div>
                 <ul className="space-y-5 text-3xl font-light leading-normal">
                   {[
-                    { href: '/#skills', label: 'Skills' },
-                    { href: '/#projects', label: 'Projects' },
-                    { href: '/#experience', label: 'Experience' },
-                    { href: '/#testimonials', label: 'Testimonials' },
-                    { href: '/#contact', label: 'Contact' },
+                    { href: '/#skills', label: t('nav.skills') },
+                    { href: '/#projects', label: t('nav.projects') },
+                    { href: '/#experience', label: t('nav.experience') },
+                    { href: '/#testimonials', label: t('nav.testimonials') },
+                    { href: '/#contact', label: t('nav.contact') },
                   ].map(({ href, label }) => (
                     <li key={href}>
                       <a
@@ -128,7 +134,7 @@ function MenuTrigger() {
               {/* Socials */}
               <div>
                 <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">
-                  Socials
+                  {t('menu.socials')}
                 </p>
                 <div className="w-full h-px bg-white/10 mb-4"></div>
                 <div className="flex flex-wrap gap-6 text-sm font-medium">

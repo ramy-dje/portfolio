@@ -1,10 +1,12 @@
 import React, { useRef } from 'react';
 import { useInView, motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { slideUp } from '../utils/animate';
 import Magnetic from '../utils/Magnetic';
 
 function About() {
-  const intro = `Building robust technical solutions for businesses to solve real problems in a digital world by combining engineering and craftsmanship together we will create lasting impact always focused on meaningful results`;
+  const { t } = useTranslation();
+  const intro = t('about.intro');
 
   const words = intro.split(/\s+/);
   const containerRef = useRef(null);
@@ -17,7 +19,7 @@ function About() {
     <section
       id="about"
       ref={containerRef}
-      className="md:py-28 py-20 md:px-32 px-4 min-h-[50vh] md:min-h-[70vh] flex flex-wrap items-center content-center text-[26px] sm:text-[38px] lg:text-[52px] leading-[1.3] tracking-tight gap-x-3 gap-y-2.5"
+      className="md:py-16 py-10 md:px-32 px-4 flex flex-wrap text-[28px] sm:text-[40px] lg:text-[55px] gap-4"
     >
       {words.map((word, index) => (
         <div key={index} className="overflow-hidden relative inline-block">
