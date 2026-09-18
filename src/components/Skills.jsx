@@ -97,11 +97,13 @@ function Skills() {
         return;
       }
 
-      const maxX = containerSize.width / 2 - 48;
-      const maxY = containerSize.height / 2 - 48;
+      const isMobile = containerSize.width < 768;
+      const offset = isMobile ? 28 : 48;
+      const maxX = containerSize.width / 2 - offset;
+      const maxY = containerSize.height / 2 - offset;
       const newPositions = [...positions];
       const newVelocities = [...velocities];
-      const bubbleRadius = 24;
+      const bubbleRadius = isMobile ? 16 : 24;
       const friction = 0.98;
       const bounce = 0.7;
 
@@ -125,7 +127,7 @@ function Skills() {
           newPositions[i].y = (maxY - scaledRadius) / 10;
           newVelocities[i].y = -Math.abs(newVelocities[i].y) * bounce;
         } else if (newPositions[i].y * 10 < -maxY + scaledRadius) {
-          newPositions[i].y = (-maxX + scaledRadius) / 10;
+          newPositions[i].y = (-maxY + scaledRadius) / 10;
           newVelocities[i].y = Math.abs(newVelocities[i].y) * bounce;
         }
 
@@ -263,19 +265,19 @@ function Skills() {
                   {lang.image ? (
                     <img
                       src={lang.image}
-                      className="w-16 h-16 rounded-lg"
+                      className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-lg object-contain"
                       alt={lang.name}
                       style={{
-                        filter: `drop-shadow(0 0 8px ${lang.color}) drop-shadow(0 0 16px ${lang.color})`,
+                        filter: `drop-shadow(0 0 6px ${lang.color}) drop-shadow(0 0 12px ${lang.color})`,
                       }}
                     />
                   ) : (
                     <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center font-bold text-xl shadow-inner"
+                      className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-full flex items-center justify-center font-bold text-xs sm:text-sm md:text-xl shadow-inner"
                       style={{
                         backgroundColor: lang.color,
                         color: lang.textColor,
-                        boxShadow: `0 0 30px ${lang.color}`,
+                        boxShadow: `0 0 20px ${lang.color}`,
                       }}
                     >
                       {lang.symbol}

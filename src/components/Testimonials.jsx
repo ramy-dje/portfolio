@@ -15,21 +15,21 @@ const testimonials = [
     role: 'CEO of Black and Yellow',
     image: '/ceos/rafik.jpg',
     quote:
-      "I'm incredibly thankful to Rami for his professional work. He is by far the most agile and skillful in Algeria. I truly appreciate working with him and look forward to future collaborations.",
+      "What I loved most about working with Rami is his energy and intelligence, especially his quick problem-solving skills. He always gives 100% and does his best every time. If I ever get another chance to work with him, I would do it again without hesitation.",
   },
   {
     name: 'Sami Tebibel',
     role: 'CEO of Nexo',
     image: '/ceos/sami.jpg',
     quote:
-      'Working with Ramy has been a pleasure, he is quick to find solutions and motivated, always trying to improve himself and those around him.',
+      "During our collaboration at Nexo Pizza, Rami showed real commitment, solid coding skills, and a deep understanding of stock management software and SaaS. Proactive and attentive to user experience, he took initiative rather than waiting for direction. He'd be an asset to any product team.",
   },
   {
     name: 'Reda Baka',
     role: 'CEO of BigNova',
     image: '/ceos/reda.png',
     quote:
-      'Ramy Djebeli was a reliable and professional team member. He consistently delivered assigned tasks, communicated effectively, and contributed positively to the success of our projects.',
+      "Travailler avec Rami chez BIGNOVA a été un réel plaisir. Rigoureux, fiable et toujours à l'écoute, il transforme chaque retour en améliorations concrètes. Au-delà de ses compétences techniques, il apporte une vraie dynamique positive et collaborative à l'équipe.",
   },
 ];
 
@@ -45,7 +45,7 @@ const Stars = ({ dark }) => (
   <div className={`flex items-center gap-1 my-3 ${dark ? 'text-white' : 'text-black'}`}>
     {Array.from({ length: 5 }).map((_, i) => (
       <svg key={i} className="w-3.5 h-3.5 fill-current" viewBox="0 0 20 20">
-        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
       </svg>
     ))}
   </div>
@@ -86,13 +86,13 @@ function Testimonials() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7">
               <h3 className="text-[32px] sm:text-[48px] lg:text-[64px] xl:text-[80px] leading-[0.9] uppercase font-semibold tracking-tight text-black">
-                What Clients Say.
+                What Companies and Clients Say.
               </h3>
             </div>
             <div className="lg:col-span-5">
               <p className="sm:text-lg text-black/60 max-w-3xl">
-                What clients say about working with me. Real feedback from real
-                partnerships that drive exceptional results.
+                Feedback from companies, founders, and clients I've worked
+                with—reflecting our shared commitment to building exceptional products.
               </p>
             </div>
           </div>

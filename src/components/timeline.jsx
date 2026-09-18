@@ -7,10 +7,9 @@ const experiences = [
     location: 'Remote · Full-time',
     period: 'Nov 2025 – Present',
     bullets: [
-      'Engineered mobile apps, admin dashboards, and internal tools with a team of 10 for Algerian and French clients.',
-      'Optimized API performance and front-end rendering to resolve key user-facing bottlenecks.',
-      'Built reliable REST APIs, authentication flows, and real-time features across production systems.',
-      'Collaborated closely with designers to implement UI features and streamline review cycles.',
+      'Engineered and maintained production web and mobile systems across 10+ major projects, building reusable components and shared patterns that improved codebase consistency while helping modernize dashboard design and user experience across customer and internal platforms.',
+      'Containerized and deployed production services using Docker, Nginx, Linux VPS, and CI/CD.',
+      'Refactored authentication and real-time messaging modules, reducing code duplication and strengthening security against common OWASP vulnerabilities.',
     ],
   },
   {
@@ -18,10 +17,9 @@ const experiences = [
     location: 'Remote · Part-time',
     period: 'Oct 2025 – Jun 2026',
     bullets: [
-      'Built a full MERN stock ecosystem: inventory, supplier integration, driver delivery app, and POS-connected admin dashboard.',
-      'Integrated real-time Telegram alerts for low stock and expiration, replacing manual checking.',
-      'Created an internal task management platform for staff operations and workload visibility.',
-      'Managed Docker and Nginx deployments with GitHub Actions CI/CD pipelines.',
+      'Designed a full-stack stock management system with MERN stack, covering inventory tracking, stock movements, supplier management, and an admin dashboard, fully integrated with the existing POS system.',
+      'Engineered a real-time low-stock and expiry alerting pipeline via the Telegram Bot API, replacing a manual, error-prone process with automated notifications.',
+      'Managed deployment infrastructure containerized with Docker, configured Nginx as reverse proxy, and built CI/CD pipelines via GitHub Actions.',
     ],
   },
   {
@@ -29,9 +27,9 @@ const experiences = [
     location: 'Remote · Freelance',
     period: 'Jan 2025 – Oct 2025',
     bullets: [
-      'Delivered web solutions for 4 Algerian companies, including corporate sites, a custom blog editor, and an e-commerce platform.',
-      'Built a custom component-based rich text editor supporting embedded media and modular blocks.',
-      'Developed a hotel PMS platform covering room bookings, pricing, tax configuration, and workflow automation.',
+      "Engineered a CMS module for Madar one of Algeria's largest companies featuring a Notion-style rich-text editor built with Tiptap and a custom file manager backed by MinIO for image and asset handling, delivered alongside their full corporate website.",
+      'Contributed to a large-scale e-commerce and stock management platform for a pharmaceutical manufacturing and distribution company, supporting large-catalog, multi-item sales and inventory operations across the country.',
+      'Developed property management system solutions tailored to the operational needs of Algerian hotel groups, covering dynamic pricing, tax configuration, room and service inventory, and end-to-end workflow automation.',
     ],
   },
   {
@@ -39,8 +37,8 @@ const experiences = [
     location: 'Constantine',
     period: 'Jan 2024 – Jun 2024',
     bullets: [
-      'Designed a cross-platform POS system (mobile & desktop) with offline resilience.',
-      'Implemented a customer loyalty and rewards management system to boost retention and average spend.',
+      'Designed and built a cross-platform POS system for mobile and desktop with a client-server architecture and offline-first capabilities. Load-tested critical flows with k6 using up to 7,000 simulated concurrent users, identifying performance bottlenecks before deployment.',
+      'Implemented a loyalty management system tracking customer spending, points contributing to improved customer retention and higher average spend.',
     ],
   },
 ];

@@ -21,32 +21,35 @@ function Hero() {
 
   return (
     <section
-      className={` h-screen flex flex-col relative overflow-y-hidden`}
+      className={`h-screen flex flex-col relative overflow-hidden`}
       style={{ backgroundColor: theGray }}
     >
       <NavBar isBlack={false} />
       <img
         src="ramy.png"
         alt=""
-        className="md:h-screen h-[90%] absolute bottom-0 right-[50%] translate-x-1/2  object-cover z-20"
+        className="md:h-screen h-[85%] absolute bottom-0 right-[50%] translate-x-1/2 object-cover z-20 pointer-events-none"
       />
       <div className="absolute top-[40px] right-[50%] translate-x-1/2 md:w-[750px] w-[350px] h-[750px] rounded-full bg-[#D9D9D9] z-4 blur-[80px]"></div>
-      <div className="text-white absolute md:top-[40%] bottom-[20px] md:text-3xl text-lg left-4 md:left-auto md:right-6 lg:right-16 z-50">
+
+      {/* Located in - Positioned above the moving name on mobile */}
+      <div className="text-white absolute bottom-[155px] sm:bottom-[175px] md:bottom-auto md:top-[40%] md:text-3xl text-base sm:text-lg left-4 sm:left-6 md:left-auto md:right-6 lg:right-16 z-40">
         <Magnetic modify={0.2}>
           <p>Located in</p>
         </Magnetic>
         <Magnetic modify={0.2}>
-          <div className="flex flex-row items-baseline ">
+          <div className="flex flex-row items-baseline gap-1 mt-0.5">
             <img
               src="location.png"
               alt=""
-              className="md:w-8 w-6 animate-move-up-down"
+              className="md:w-8 w-5 animate-move-up-down"
             />
             <p>Constantine, Algeria</p>
           </div>
         </Magnetic>
       </div>
-      <div className="text-white absolute md:top-[40%] top-[40%] md:text-3xl text-lg right-4 md:right-auto md:left-6 lg:left-16 z-10 md:block hidden ">
+
+      <div className="text-white absolute md:top-[40%] top-[40%] md:text-3xl text-lg right-4 md:right-auto md:left-6 lg:left-16 z-10 md:block hidden">
         <Magnetic modify={0.2}>
           <p>I am a</p>
         </Magnetic>
@@ -54,9 +57,11 @@ function Hero() {
           <p>Software Engineer</p>
         </Magnetic>
       </div>
-      <div className="absolute bottom-16 z-30 w-full h-[270px] overflow-hidden flex items-center">
+
+      {/* Moving Marquee at the bottom on mobile */}
+      <div className="absolute bottom-0 md:bottom-16 z-30 w-full h-[150px] md:h-[270px] overflow-hidden flex items-center pointer-events-none">
         <motion.div
-          className="flex gap-12 text-white whitespace-nowrap"
+          className="flex gap-8 md:gap-12 text-white whitespace-nowrap"
           ref={marqueeRef}
           animate={{ x: [-0, -width] }}
           transition={{
@@ -68,11 +73,11 @@ function Hero() {
           style={{ x: 0 }}
         >
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="flex md:gap-12 gap-4 whitespace-nowrap">
-              <p className="lg:text-[240px] md:text-[170px] text-[120px] md:leading-24 leading-12 z-10">
+            <div key={i} className="flex md:gap-12 gap-4 items-center whitespace-nowrap">
+              <p className="lg:text-[240px] md:text-[170px] text-[100px] sm:text-[120px] leading-none z-10">
                 Djebeli Ramy
               </p>
-              <div className="lg:h-[20px] md:h-[15px] h-[10px] md:w-[200px] w-[130px] bg-white md:mt-16 mt-8"></div>
+              <div className="lg:h-[20px] md:h-[15px] h-[8px] md:w-[200px] w-[100px] bg-white"></div>
             </div>
           ))}
         </motion.div>

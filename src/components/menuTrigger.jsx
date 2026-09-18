@@ -91,10 +91,11 @@ function MenuTrigger() {
             <div className="space-y-12">
               {/* Navigation */}
               <div>
-                <p className="text-sm text-gray-400 uppercase tracking-widest mb-2">
+                <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">
                   Navigation
                 </p>
-                <ul className="space-y-6 text-3xl font-light leading-normal">
+                <div className="w-full h-px bg-white/10 mb-6"></div>
+                <ul className="space-y-5 text-3xl font-light leading-normal">
                   {[
                     { href: '/#skills', label: 'Skills' },
                     { href: '/#projects', label: 'Projects' },
@@ -105,26 +106,18 @@ function MenuTrigger() {
                     <li key={href}>
                       <a
                         href={href}
-                        className={`transition-all duration-200 px-4 py-2 rounded-lg inline-flex items-center gap-2 focus:outline-none text-white text-3xl font-light ${
-                          currentHash === href ? 'relative' : ''
-                        }`}
+                        onClick={toggleMenu}
+                        className="transition-all duration-200 py-1 inline-flex items-center gap-3 focus:outline-none text-white text-3xl font-light hover:opacity-75"
                         style={{
                           fontSize: '2rem',
                           letterSpacing: '0.03em',
                         }}
                       >
-                        <span
-                          className={`mr-2 transition-colors duration-200`}
-                          style={{
-                            fontSize: '1.5rem',
-                            width: '1.2em',
-                            display: 'inline-block',
-                            color:
-                              currentHash === href ? '#fff' : 'transparent',
-                          }}
-                        >
-                          ●
-                        </span>
+                        {currentHash === href && (
+                          <span className="text-xs text-white inline-block">
+                            ●
+                          </span>
+                        )}
                         <Magnetic modify={0.4}>{label}</Magnetic>
                       </a>
                     </li>
@@ -134,15 +127,16 @@ function MenuTrigger() {
 
               {/* Socials */}
               <div>
-                <p className="text-sm text-gray-400 uppercase tracking-widest mb-2">
+                <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">
                   Socials
                 </p>
-                <div className="flex flex-wrap gap-4 text-sm font-medium">
+                <div className="w-full h-px bg-white/10 mb-4"></div>
+                <div className="flex flex-wrap gap-6 text-sm font-medium">
                   <Magnetic modify={0.4}>
                     <a
                       href="https://github.com/ramy-dje"
                       target="_blank"
-                      className="transition-all duration-200 px-4 py-2 rounded-lg  text-lg font-semibold"
+                      className="transition-all duration-200 py-1 text-lg font-semibold hover:opacity-75"
                     >
                       GitHub
                     </a>
@@ -151,7 +145,7 @@ function MenuTrigger() {
                     <a
                       href="https://linkedin.com/in/rami-djebeli"
                       target="_blank"
-                      className="transition-all duration-200 px-4 py-2 rounded-lg  text-lg font-semibold"
+                      className="transition-all duration-200 py-1 text-lg font-semibold hover:opacity-75"
                     >
                       LinkedIn
                     </a>

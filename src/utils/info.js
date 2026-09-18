@@ -186,15 +186,15 @@ const categories = [
 const projects = [
   {
     name: 'TESSAM POS',
-    description: `
-      TESSAM is a powerful and versatile Point of Sale (POS) system, designed as a complete solution for managing sales, inventory, and customer interactions in retail and service environments.<br/>
-      🌟Key Features: <br/>
-      ✔️ Real-Time Inventory Tracking: Stay updated on stock levels effortlessly 📦<br/>
-      ✔️ Comprehensive Sales Reporting: Gain insights with detailed analytics 📊<br/>
-      ✔️ Multi-Payment Support: Seamlessly accept cards, cash, and digital payments 💳💵<br/>
-      ✔️ Employee Management: Assign roles, track performance, and ensure secure access 👩‍💻<br/>
-      ✔️ Integrated Loyalty Program: Reward customers and boost retention 🎁
-    `,
+    intro:
+      'A full-stack retail management platform developed as part of a larger ecosystem for managing operations across multiple malls and stores. The system combines a desktop/web administration platform for centralized monitoring with a React Native mobile POS application used by sellers for day-to-day store operations.',
+    points: [
+      'Built a cross-platform mobile POS application with React Native, enabling barcode scanning, instant checkout, and digital receipt generation.',
+      'Developed desktop/web administrative dashboards for real-time tracking of multi-store sales, inventory, and staff operations.',
+      'Designed scalable RESTful backend services and MongoDB data models supporting multi-mall retail workflows.',
+      'Implemented role-based access control, integrated loyalty programs, and multi-payment processing.',
+      'Created modular, responsive UI design systems from Figma prototypes with NativeWind.',
+    ],
     images: [
       '/tessam/1.png',
       '/tessam/2.png',
@@ -216,16 +216,15 @@ const projects = [
   },
   {
     name: 'VerticCity',
-    description: `
-      The Verticcity app connects plant enthusiasts with trusted sellers while providing a platform for sharing knowledge through blogs. It features a multi-actor system with sellers, buyers, and admins.<br/>
-      Key features include:<br/>
-      🛒 Marketplace: Sellers showcase products; buyers shop easily.<br/>
-      ✅ Admin Control: Manage seller approvals and platform activity.<br/>
-      ✍️ Blogging: Create and explore plant care blogs.<br/>
-      🔍 Search & Filters: Find plants effortlessly.<br/>
-      📈 Analytics: Insights for admins and sellers.<br/>
-      🌱 User-Friendly: Seamless experience for all users.    
-    `,
+    intro:
+      'A full-stack mobile marketplace platform developed for a startup focused on promoting and expanding green spaces. The application connects plant sellers, buyers, and administrators through a multi-actor ecosystem combining e-commerce, content publishing, real-time communication, and operational analytics.',
+    points: [
+      'Built an end-to-end mobile marketplace with React Native and Zustand for plant browsing, filtering, and order tracking.',
+      'Developed seller storefronts for inventory management, pricing, plant listings, and delivery status updates.',
+      'Implemented real-time messaging and push notifications between buyers and sellers via WebSockets.',
+      'Engineered an educational blogging CMS allowing sellers to publish plant-care guides and boost visibility.',
+      'Built administrative analytics dashboards and scalable Node.js/Express REST APIs with MongoDB.',
+    ],
     images: ['/verticCity/1.jpg', '/verticCity/2.jpg'],
     techStack: [
       { name: 'reactjs', image: '/icons/reactjs.png' },
@@ -240,13 +239,15 @@ const projects = [
   },
   {
     name: 'NexoManager',
-    description: `
-    🍕 A management platform for Nexo Pizza Pizzeria, built to efficiently handle stock levels, purchases, and staff organization. Designed for seamless coordination and smooth operations.<br/>
-👥 Roles:<br/>
-👨‍🍳 Staff: Record stock usage, track ingredient levels, and request supplies.<br/>
-📦 Manager: Monitor inventory, approve purchases, and oversee daily stock activities.<br/>
-🧾 Admin: Manage users, system settings, and generate detailed reports.<br/>
-I enjoyed developing this project to make restaurant stock management simpler, faster, and more organized. 🚀    `,
+    intro:
+      'A full-stack restaurant management platform developed for Nexo Pizza to centralize inventory, purchasing, and staff operations. The system provides role-specific workflows for staff, managers, and administrators, enabling real-time coordination of stock activities and purchasing processes.',
+    points: [
+      'Built a full-stack stock and restaurant management platform with Next.js, TypeScript, and shadcn/ui.',
+      'Engineered automated inventory workflows for ingredient tracking, supply requests, and stock depletion.',
+      'Implemented purchase approval pipelines with multi-role access control for staff, managers, and admins.',
+      'Integrated real-time live synchronization across active sessions via WebSockets and TanStack Query.',
+      'Containerized the entire platform using Docker and deployed with Node.js/Express backend APIs.',
+    ],
     images: [
       '/nexo/mockup.png',
       '/nexo/1.png',
@@ -267,14 +268,16 @@ I enjoyed developing this project to make restaurant stock management simpler, f
     created: 'July 2024',
   },
   {
-    name: 'Nova',
-    description: `
-    🏥 Nova Health is a mobile platform designed to simplify healthcare management by connecting patients, doctors, and admins in one place.<br/>
-👥 Roles:<br/>
-🧑‍⚕️ Patient: Book appointments, view doctor profiles, and track booking status.<br/>
-👨‍⚕️ Doctor: Confirm or reject appointments, manage schedules, and update availability.<br/>
-👨‍💼 Admin: Manage doctors, patients, and oversee all platform activities.<br/>
-I enjoyed building this project to make doctor booking easy, fast, and well-organized, improving both patient experience and clinic efficiency. 🚀 `,
+    name: 'Nova Healthcare',
+    intro:
+      'A full-stack mobile healthcare platform designed to centralize appointment management and connect patients, doctors, and administrators through role-specific workflows. The platform streamlines the complete appointment lifecycle, from booking and availability management to confirmation and administrative oversight.',
+    points: [
+      'Developed a cross-platform mobile healthcare app with React Native, TypeScript, and Redux Toolkit.',
+      'Engineered end-to-end appointment scheduling, status tracking, and doctor availability management.',
+      'Implemented role-based workflows and portals for patients, doctors, and clinic administrators.',
+      'Designed structured PostgreSQL schemas and relational data models for medical bookings and user profiles.',
+      'Built high-performance REST APIs with Node.js and Express for synchronized scheduling operations.',
+    ],
     images: ['/novadoc/1.png', '/novadoc/2.png'],
     techStack: [
       { name: 'react native', image: '/icons/reactnative.png' },
@@ -289,13 +292,15 @@ I enjoyed building this project to make doctor booking easy, fast, and well-orga
   },
   {
     name: 'Bubble',
-    description: `
-    Bubble is a comprehensive management system for kindergartens, designed to streamline daily operations.<br/>
-Key Roles & Features:<br/>
-Child & Class Tracking: Keep detailed records of enrollment, daily attendance, and group assignments.<br/>
-Activity Scheduler: Organize daily activities, events, and lessons efficiently.<br/>
-Parent Connection: Facilitate seamless updates and notes between teachers and parents.<br/>
-Admin Dashboard: Monitor operations, staff details, and class capacity in real time.`,
+    intro:
+      'A full-stack kindergarten management platform built to centralize child, class, attendance, scheduling, and parent–teacher workflows. Developed with Angular, Spring Boot, and PostgreSQL.',
+    points: [
+      'Managed child enrollment, class assignments, attendance, and daily records.',
+      'Built activity and event scheduling for lessons and daily programs.',
+      'Implemented parent–teacher communication for updates and notes.',
+      'Developed an admin dashboard for staff, classes, capacity, and operational monitoring.',
+      'Built REST APIs with Spring Boot and structured relational data models with PostgreSQL.',
+    ],
     images: [
       '/bubble/1.png',
       '/bubble/2.png',
@@ -316,13 +321,17 @@ Admin Dashboard: Monitor operations, staff details, and class capacity in real t
   },
   {
     name: 'Madar',
-    description: `
-    A sleek corporate website representing Madar, one of the largest and most influential companies in Algeria.<br/>
-Key Features:<br/>
-Premium Design: Modern layout with high-quality visual components and rich typography.<br/>
-Fast Performance: Built with Next.js for server-side rendering and rapid page loads.<br/>
-Fully Responsive: Seamless user experience optimized across all device screens.<br/>
-Company Portfolio: Comprehensive representation of company holdings, history, and achievements.`,
+    intro:
+      'A high-performance corporate website developed for Madar, one of Algeria’s major industrial groups, showcasing its portfolio, subsidiaries, history, and corporate activities through a modern digital experience.',
+    points: [
+      'Built with Next.js, Tailwind CSS, React Motion, and SEO optimization.',
+      'Developed a modern, responsive interface with Next.js and Tailwind CSS across desktop, tablet, and mobile.',
+      'Implemented interactive animations and transitions using React Motion for a polished user experience.',
+      'Built structured sections showcasing the group\'s companies, investments, history, and achievements.',
+      'Implemented SEO best practices, including optimized metadata, page structure, and search-engine-friendly content.',
+      'Optimized rendering and page structure for fast loading, smooth navigation, and discoverability.',
+      'Developed reusable UI components to maintain a consistent and scalable frontend architecture.',
+    ],
     images: [
       '/madar/1.png',
       '/madar/2.png',
@@ -342,13 +351,18 @@ Company Portfolio: Comprehensive representation of company holdings, history, an
   },
   {
     name: 'Kalam',
-    description: `
-    Kalam is a modern, high-performance rich text editor designed for developers and content creators.<br/>
-Key Features:<br/>
-Interactive Editing: Fully powered by Tiptap for seamless visual formatting, lists, tables, and code blocks.<br/>
-Secure API: Built with a Laravel backend to handle user authentication, file uploads, and document storage.<br/>
-SPA Interface: Uses Next.js to provide an instant, lag-free writing and saving experience.<br/>
-Document Management: Easily organize, save, edit, and export your writing projects.`,
+    intro:
+      'A full-stack document editing platform built around a rich-text writing experience, combining structured document management with AI-assisted writing and content modification.',
+    points: [
+      'Built with Next.js, Laravel, PostgreSQL, Tiptap, and Google Gemini AI.',
+      'Built a rich-text editor with Tiptap, supporting formatting, lists, tables, code blocks, and structured document content.',
+      'Developed a document management system for creating, editing, organizing, saving, and exporting writing projects.',
+      'Integrated Google Gemini AI to generate content, rewrite text, modify existing content, and assist users directly within the editor.',
+      'Developed a Next.js SPA interface for a responsive and fluid writing experience.',
+      'Built secure backend APIs with Laravel for authentication, document management, file uploads, and persistent data operations.',
+      'Designed PostgreSQL data models for users, documents, and application data.',
+      'Integrated frontend and backend workflows to support real-time-feeling editing and saving experiences.',
+    ],
     images: [
       '/kalam/1.png',
       '/kalam/2.png',
@@ -370,13 +384,18 @@ Document Management: Easily organize, save, edit, and export your writing projec
   },
   {
     name: 'EcoSmart',
-    description: `
-    EcoSmart is a robust e-commerce management system built to coordinate sales, inventory, and analytics.<br/>
-Key Features:<br/>
-Business Analytics: Dashboards showing sales trends, popular items, and stock depletion rates.<br/>
-Inventory Management: Track product levels, manage incoming supply shipments, and trigger low-stock alerts.<br/>
-Order Processing: Streamlined system to handle incoming orders from placement to shipping status.<br/>
-Scalable Backend: Powered by Spring Boot for secure enterprise data handling.`,
+    intro:
+      'A full-stack e-commerce management platform designed to centralize sales, inventory, order processing, and business analytics through a scalable enterprise architecture.',
+    points: [
+      'Built with Next.js, TypeScript, Tailwind CSS, shadcn/ui, Spring Boot, and PostgreSQL.',
+      'Developed dashboards for sales analytics, product performance, and inventory trends.',
+      'Implemented inventory management for stock levels, incoming shipments, and low-stock monitoring.',
+      'Built end-to-end order management workflows, from order placement through processing and shipping status.',
+      'Developed responsive and reusable interfaces with Next.js, Tailwind CSS, and shadcn/ui.',
+      'Built secure REST APIs and business logic with Spring Boot.',
+      'Designed relational PostgreSQL data models for products, inventory, orders, and sales operations.',
+      'Structured the platform to support scalable e-commerce and business management workflows.',
+    ],
     images: [
       '/ecosmart/1.png',
       '/ecosmart/2.png',
@@ -398,13 +417,17 @@ Scalable Backend: Powered by Spring Boot for secure enterprise data handling.`,
   },
   {
     name: 'Elbay Hotel',
-    description: `
-    A premium hotel landing page and guest reservation system, designed to elevate the online booking experience.<br/>
-Key Features:<br/>
-Room Showcases: Beautiful displays of rooms, luxury suites, and guest amenities.<br/>
-Reservation System: User-friendly booking calendar to select check-in and check-out dates.<br/>
-Brand Identity: Sophisticated styling and layout representing the hotel's luxury standard.<br/>
-Location & Contact: Easy integration of local maps, contact forms, and FAQ guides.`,
+    intro:
+      'A modern hotel website and guest reservation platform designed to provide a polished booking experience while showcasing rooms, suites, amenities, and hotel services.',
+    points: [
+      'Built with Next.js, React Motion, and Tailwind CSS.',
+      'Developed responsive pages for room and suite showcases, amenities, services, and hotel information.',
+      'Built an intuitive reservation interface for selecting check-in/check-out dates and managing booking flows.',
+      'Implemented smooth animations and page transitions using React Motion.',
+      'Developed a responsive and reusable UI system with Next.js and Tailwind CSS.',
+      'Integrated location, contact, FAQ, and guest information sections into the booking experience.',
+      'Optimized the interface for fast navigation and consistent experiences across desktop and mobile devices.',
+    ],
     images: [
       '/elbey hotel/1.png',
       '/elbey hotel/2.png',
@@ -424,13 +447,19 @@ Location & Contact: Easy integration of local maps, contact forms, and FAQ guide
   },
   {
     name: 'Hotel Manager',
-    description: `
-    Hotel Manager is a powerful, end-to-end hotel operations management suite designed for hotel staff and administrators.<br/>
-Key Features:<br/>
-Booking Operations: Handle guest check-ins, check-outs, room transfers, and room statuses in real-time.<br/>
-Housekeeping & Maintenance: Assign tasks to staff and update room cleanliness records dynamically.<br/>
-Billing & Invoices: Generate comprehensive client receipts, track payments, and manage hotel services charges.<br/>
-Multi-Role System: Distinct dashboards for admins, front desk receptionists, and service personnel.`,
+    intro:
+      'A full-stack hotel reservation platform designed to provide a polished booking experience while managing rooms, availability, reservations, and hotel information.',
+    points: [
+      'Built with Next.js, NestJS, MongoDB, React Motion, and Tailwind CSS.',
+      'Developed responsive pages for rooms, suites, amenities, services, and hotel information.',
+      'Built an intuitive reservation workflow for selecting check-in/check-out dates and managing bookings.',
+      'Developed backend APIs with NestJS for reservations, room data, availability, and booking workflows.',
+      'Designed MongoDB data models for rooms, reservations, and hotel-related data.',
+      'Implemented smooth animations and page transitions using React Motion.',
+      'Developed reusable and responsive UI components with Next.js and Tailwind CSS.',
+      'Integrated location, contact, FAQ, and guest information into the booking experience.',
+      'Optimized the platform for fast navigation and consistent experiences across desktop and mobile.',
+    ],
     images: [
       '/hotel manager/1.png',
       '/hotel manager/2.png',
