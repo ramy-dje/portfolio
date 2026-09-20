@@ -1,10 +1,9 @@
 const programmingLanguages = [
   { name: 'JavaScript', color: '#F7DF1E', textColor: '#000', symbol: 'JS' },
   { name: 'Python', image: '/icons/python.png', color: '#3776AB', textColor: '#fff' },
-  { name: 'TypeScript', color: '#3178C6', textColor: '#fff', symbol: 'TS' },
-  { name: 'PHP', color: '#777BB4', textColor: '#fff', symbol: 'PHP' },
-  { name: 'Java', color: '#5382A1', textColor: '#fff', symbol: 'Java' },
-  { name: 'Dart', color: '#0175C2', textColor: '#fff', symbol: 'Dart' },
+  { name: 'TypeScript', image: '/icons/typeScript.png', color: '#3178C6', textColor: '#fff' },
+  { name: 'PHP', image: '/icons/php.png', color: '#777BB4', textColor: '#fff' },
+  { name: 'Java', image: '/icons/java.png', color: '#5382A1', textColor: '#fff' },
   // 🖥️ Web Development
   {
     name: 'ReactJS',
@@ -62,12 +61,6 @@ const programmingLanguages = [
     color: '#61DAFB',
     textColor: '#000',
   },
-  {
-    name: 'Flutter',
-    color: '#02569B',
-    textColor: '#fff',
-    symbol: 'Fl',
-  },
 
   // 🛢️ Databases
   {
@@ -103,6 +96,18 @@ const programmingLanguages = [
     textColor: '#fff',
   },
   { name: 'Git', image: '/icons/git.png', color: '#F1502F', textColor: '#000' },
+  {
+    name: 'GitHub Actions',
+    image: '/icons/githubactions.png',
+    color: '#2088FF',
+    textColor: '#fff',
+  },
+  {
+    name: 'Nginx',
+    image: '/icons/nginx.png',
+    color: '#009639',
+    textColor: '#fff',
+  },
   {
     name: 'Linux',
     image: '/icons/linux.png',
@@ -168,13 +173,15 @@ const categories = [
   },
   {
     title: 'Mobile development',
-    items: ['React Native', 'Expo', 'Flutter', 'Dart'],
+    items: ['React Native', 'Expo'],
   },
   {
     title: 'Other skills',
     items: [
       'Git',
       'Docker',
+      'Nginx',
+      'Github actions',
       'GraphQL',
       'RESTful APIs',
       'Socket.IO',
