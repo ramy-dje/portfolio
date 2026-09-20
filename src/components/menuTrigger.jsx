@@ -3,16 +3,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Magnetic from '../utils/Magnetic';
 import { theBlack, theRed } from '../utils/colors';
-import LanguageSelector from './LanguageSelector';
 
 function MenuTrigger() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [showButton, setShowButton] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentHash, setCurrentHash] = useState(
     window.location.hash || '#home'
   );
   const [shouldShowBorder, setShouldShowBorder] = useState(false);
+
+  const languages = [
+    { code: 'fr', label: 'Français' },
+    { code: 'ar', label: 'العربية' },
+    { code: 'en', label: 'English' },
+  ];
 
   useEffect(() => {
     const handleHashChange = () =>
@@ -79,9 +84,8 @@ function MenuTrigger() {
             transition={{ duration: 0.4 }}
             className="fixed top-0 right-0 h-full md:w-[35%] w-full bg-[#111] text-white p-8 z-60 shadow-2xl overflow-y-auto"
           >
-            {/* Close & Language Button Row */}
-            <div className="flex items-center justify-between mb-6">
-              <LanguageSelector isBlack={false} />
+            {/* Close Button Row */}
+            <div className="flex items-center justify-end mb-6">
               <Magnetic modify={0.4}>
                 <div
                   onClick={toggleMenu}
@@ -95,6 +99,42 @@ function MenuTrigger() {
 
             {/* Menu Content */}
             <div className="space-y-10">
+              {/* Language */}
+              <div>
+                <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">
+                  {t('menu.language')}
+                </p>
+                <div className="w-full h-px bg-white/10 mb-6"></div>
+                <div className="flex flex-wrap items-center gap-6 md:gap-8">
+                  {languages.map(({ code, label }) => {
+                    const isSelected =
+                      (i18n.language || 'fr').startsWith(code);
+                    return (
+                      <button
+                        key={code}
+                        type="button"
+                        onClick={() => i18n.changeLanguage(code)}
+                        className={`transition-all duration-200 py-1 inline-flex items-center gap-2.5 focus:outline-none text-white hover:opacity-75 cursor-pointer text-xl md:text-2xl font-light ${
+                          isSelected ? 'font-normal opacity-100' : 'opacity-60 hover:opacity-100'
+                        }`}
+                        style={{
+                          letterSpacing: '0.03em',
+                        }}
+                      >
+                        {isSelected && (
+                          <span className="text-xs text-white inline-block">
+                            ●
+                          </span>
+                        )}
+                        <Magnetic modify={0.4}>
+                          <span>{label}</span>
+                        </Magnetic>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
               {/* Navigation */}
               <div>
                 <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">

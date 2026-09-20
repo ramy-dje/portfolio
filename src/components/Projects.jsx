@@ -15,11 +15,13 @@ function Projects() {
   const modalContainer = useRef(null);
 
   const manageModal = (active, index) => {
+    if (typeof window !== 'undefined' && window.innerWidth < 768) return;
     setModal({ active, index });
   };
 
   useEffect(() => {
     const handleMouseMove = (e) => {
+      if (window.innerWidth < 768) return;
       setCursorPosition({ x: e.clientX, y: e.clientY });
       if (modalContainer.current) {
         modalContainer.current.style.left = `${e.clientX}px`;
@@ -70,15 +72,19 @@ function Projects() {
             initial="initial"
             whileHover="hover"
             onMouseEnter={() => {
-              manageModal(true, i);
-              setShowLabel(true);
+              if (window.innerWidth >= 768) {
+                manageModal(true, i);
+                setShowLabel(true);
+              }
             }}
             onMouseLeave={() => {
-              manageModal(false, i);
-              setShowLabel(false);
+              if (window.innerWidth >= 768) {
+                manageModal(false, i);
+                setShowLabel(false);
+              }
             }}
             onClick={() => navigate(`/project/${project.name}`)}
-            className="group cursor-none border-b border-black/10 pb-8 md:pb-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
+            className="group cursor-pointer md:cursor-none border-b border-black/10 pb-8 md:pb-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-6"
           >
             {/* Mobile image */}
             <img
@@ -144,7 +150,7 @@ function Projects() {
             : { scale: 0, x: '-50%', y: '-50%' }
         }
         transition={{ duration: 0.4, ease: [0.76, 0, 0.24, 1] }}
-        className="h-[350px] w-[400px] fixed top-1/2 left-1/2 bg-white pointer-events-none overflow-hidden z-30 shadow-lg rounded-lg"
+        className="hidden md:block h-[340px] w-[490px] fixed top-1/2 left-1/2 pointer-events-none overflow-hidden z-30 shadow-2xl rounded-2xl"
       >
         <div
           className="h-full w-full relative transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
@@ -153,13 +159,12 @@ function Projects() {
           {projects.map((project, idx) => (
             <div
               key={`modal_${idx}`}
-              className="h-full w-full flex items-center justify-center p-6"
-              style={{ backgroundColor: project.color }}
+              className="h-full w-full flex items-center justify-center overflow-hidden rounded-2xl"
             >
               <img
                 src={project.images[0]}
                 alt={project.name}
-                className="max-w-full max-h-full object-contain rounded shadow-md"
+                className="w-full h-full object-cover rounded-2xl shadow-xl"
               />
             </div>
           ))}
@@ -175,7 +180,7 @@ function Projects() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.5 }}
             transition={{ duration: 0.2 }}
-            className="fixed z-40 rounded-full w-20 h-20 flex items-center justify-center text-white text-base font-semibold pointer-events-none"
+            className="hidden md:flex fixed z-40 rounded-full w-20 h-20 items-center justify-center text-white text-base font-semibold pointer-events-none"
             style={{
               top: cursorPosition.y - 40,
               left: cursorPosition.x - 40,

@@ -55,7 +55,9 @@ function Skills() {
     const updateSize = () => {
       if (containerRef.current) {
         const rect = containerRef.current.getBoundingClientRect();
-        setContainerSize({ width: rect.width, height: rect.height });
+        if (rect.width > 0 && rect.height > 0) {
+          setContainerSize({ width: rect.width, height: rect.height });
+        }
       }
     };
     updateSize();
@@ -240,7 +242,7 @@ function Skills() {
         {/* Right: Black Div with original glow items and untouched physics logic */}
         <div
           ref={containerRef}
-          className="relative h-[420px] md:h-[560px] w-full md:col-span-5 bg-black rounded-3xl overflow-hidden flex items-center justify-center"
+          className="hidden md:flex relative h-[560px] w-full md:col-span-5 bg-black rounded-3xl overflow-hidden items-center justify-center"
         >
           {/* Floating language icons physics */}
           {programmingLanguages.map((lang, index) =>
