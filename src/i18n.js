@@ -21,7 +21,7 @@ const resources = {
       },
       about: {
         intro:
-          'Building robust technical solutions for businesses to solve real problems in a digital world by combining engineering and craftsmanship together we will create lasting impact always focused on meaningful results',
+          'I build software for businesses that solves real problems. My values are attention to detail, quality, reliability, clear communication, and I always try to give the best solution.',
       },
       skills: {
         meta: 'Tech Stack',
@@ -187,7 +187,7 @@ const resources = {
       },
       about: {
         intro:
-          'Bâtir des solutions techniques robustes pour aider les entreprises à résoudre de vrais problèmes dans un monde numérique, en alliant ingénierie et artisanat pour créer, ensemble, un impact durable, toujours tourné vers des résultats qui comptent.',
+          'Je développe des logiciels qui résolvent de vrais problèmes pour les entreprises. Mes valeurs : le souci du détail, la qualité, la fiabilité et une communication claire. Je cherche toujours à apporter la meilleure solution.',
       },
       skills: {
         meta: 'Stack Technique',
@@ -353,7 +353,7 @@ const resources = {
       },
       about: {
         intro:
-          'بناء حلول برمجية متقدمة وقوية للشركات لحل مشاكل حقيقية في العالم الرقمي من خلال الجمع بين الهندسة الدقيقة والحرفية البرمجية لتحقيق أثر ملموس ونتائج دائمة',
+          'أطوّر برمجيات تحل مشاكل حقيقية للشركات. قيمي هي الاهتمام بالتفاصيل، والجودة، والاعتمادية، والتواصل الواضح، وأسعى دائماً لتقديم أفضل حل.',
       },
       skills: {
         meta: 'التقنيات',
