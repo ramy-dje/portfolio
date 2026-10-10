@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { slideUp } from '../utils/animate';
 import Magnetic from '../utils/Magnetic';
 import { programmingLanguages, categories } from '../utils/info';
+import ScrollableProjects from './ScrollableProjects';
 
 const categoryIcons = [
   // Frontend
@@ -311,6 +312,9 @@ function Skills() {
           </div>
         </div>
       </div>
+
+      {/* Project screenshots carousels */}
+      <ScrollableProjects />
     </section>
   );
 }
