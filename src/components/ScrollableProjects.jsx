@@ -35,6 +35,7 @@ function MarqueeRow({ items, reverse = false, duration = 40 }) {
 
   return (
     <div
+      dir="ltr"
       className="overflow-hidden"
       onMouseEnter={() => easeTo(0.3)}
       onMouseLeave={() => easeTo(1)}
