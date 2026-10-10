@@ -36,7 +36,7 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="md:py-16 py-10 md:px-32 px-4 text-black relative"
+      className="md:py-16 py-10 md:px-10 lg:px-16 xl:px-32 px-4 text-black relative"
     >
       {/* Section Title */}
       <div className="mb-16">

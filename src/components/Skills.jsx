@@ -160,7 +160,7 @@ function Skills() {
   }, [positions, velocities, mousePosition, containerSize]);
 
   return (
-    <section id="skills" className="md:py-16 py-10 md:px-32 px-4 bg-white">
+    <section id="skills" className="md:py-16 py-10 md:px-10 lg:px-16 xl:px-32 px-4 bg-white">
       {/* Header */}
       <div className="mb-12">
         {/* Top meta row */}
@@ -199,7 +199,7 @@ function Skills() {
       {/* Bento Grid layout */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
         {/* Left: 2 lines x 2 columns category cards (white background, gray border) */}
-        <div className="md:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="md:col-span-12 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
           {categories.map((category, index) => {
             const categoryKeys = ['frontend', 'backend', 'mobile', 'other'];
             const categoryTitle =
@@ -243,7 +243,7 @@ function Skills() {
         {/* Right: Black Div with original glow items and untouched physics logic */}
         <div
           ref={containerRef}
-          className="hidden md:flex relative h-[560px] w-full md:col-span-5 bg-black rounded-3xl overflow-hidden items-center justify-center"
+          className="hidden lg:flex relative h-[560px] w-full lg:col-span-5 bg-black rounded-3xl overflow-hidden items-center justify-center"
         >
           {/* Floating language icons physics */}
           {programmingLanguages.map((lang, index) =>

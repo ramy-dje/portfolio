@@ -19,7 +19,7 @@ function About() {
     <section
       id="about"
       ref={containerRef}
-      className="md:py-16 py-10 md:px-32 px-4 flex flex-wrap text-[28px] sm:text-[40px] lg:text-[55px] gap-4"
+      className="md:py-16 py-10 md:px-10 lg:px-16 xl:px-32 px-4 flex flex-wrap text-[28px] sm:text-[40px] lg:text-[55px] gap-4"
     >
       {words.map((word, index) => (
         <div key={index} className="overflow-hidden relative inline-block">

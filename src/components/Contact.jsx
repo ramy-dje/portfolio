@@ -91,7 +91,7 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="text-black md:py-16 py-10 md:px-32 px-4">
+    <section id="contact" className="text-black md:py-16 py-10 md:px-10 lg:px-16 xl:px-32 px-4">
       {/* Header (matches other sections) */}
       <div className="mb-16">
         {/* Top meta row */}

@@ -28,7 +28,7 @@ function MenuTrigger() {
 
   useEffect(() => {
     const checkVisibility = () => {
-      const shouldShow = window.innerWidth < 758 || window.scrollY > 100;
+      const shouldShow = window.innerWidth < 1024 || window.scrollY > 100;
       setShowButton(shouldShow);
       const shouldShowBorder = window.scrollY > window.innerHeight;
       setShouldShowBorder(shouldShowBorder);

@@ -19,7 +19,7 @@ function NavBar({ isBlack }) {
       >
         <h1 className="text-xl">&copy; {t('nav.codeBy')}</h1>
       </div>
-      <div className="hidden md:flex gap-8 text-xl items-center">
+      <div className="hidden lg:flex gap-8 text-xl items-center">
         <Magnetic>
           <a href="/#skills" className="navlink">
             {t('nav.skills')}
