@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { optimized } from '../utils/image';
 import { useTranslation } from 'react-i18next';
 import { slideUp } from '../utils/animate';
 
@@ -154,7 +155,8 @@ function Testimonials() {
                       </div>
                       {testimonial.image ? (
                         <img
-                          src={testimonial.image}
+                          src={optimized(testimonial.image, 160)}
+                          loading="lazy"
                           alt={testimonial.name}
                           className="w-10 h-10 rounded-full object-cover shrink-0 ring-1 ring-white/20"
                         />
@@ -172,7 +174,8 @@ function Testimonials() {
                       <div className="flex items-center gap-3 mb-2">
                         {testimonial.image ? (
                           <img
-                            src={testimonial.image}
+                            src={optimized(testimonial.image, 160)}
+                          loading="lazy"
                             alt={testimonial.name}
                             className="w-10 h-10 rounded-full object-cover shrink-0 ring-1 ring-black/10"
                           />

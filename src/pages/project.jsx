@@ -6,6 +6,7 @@ import MagneticButton from '../components/MagneticButton';
 import NextProject from '../components/NextProject';
 import { projects } from '../utils/info';
 import MenuTrigger from '../components/menuTrigger';
+import { optimized, srcSet, SCREENSHOT_WIDTHS } from '../utils/image';
 
 function Project() {
   const { t } = useTranslation();
@@ -67,7 +68,7 @@ function Project() {
           </h1>
           {project.logo ? (
             <img
-              src={project.logo}
+              src={optimized(project.logo, 200)}
               alt="logo"
               className="w-[100px] mt-6 md:mt-0 object-contain max-h-[60px]"
             />
@@ -175,7 +176,9 @@ function Project() {
           )}
           {project.images?.[0] && (
             <img
-              src={project.images[0]}
+              src={optimized(project.images[0], 1600)}
+              srcSet={srcSet(project.images[0], SCREENSHOT_WIDTHS)}
+              sizes="(min-width: 1400px) 1272px, 100vw"
               alt="Project Screenshot"
               className="w-full rounded-lg shadow-xl"
             />
@@ -186,7 +189,11 @@ function Project() {
         {project.images?.slice(1).map((image, i) => (
           <img
             key={i}
-            src={image}
+            src={optimized(image, 1600)}
+            srcSet={srcSet(image, SCREENSHOT_WIDTHS)}
+            sizes="(min-width: 1400px) 1272px, 100vw"
+            loading="lazy"
+            decoding="async"
             alt={`Screenshot ${i + 2}`}
             className="w-full mt-12 rounded-lg shadow-md"
           />

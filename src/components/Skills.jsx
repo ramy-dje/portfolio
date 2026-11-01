@@ -277,6 +277,7 @@ function Skills() {
                   {lang.image ? (
                     <img
                       src={lang.image}
+                      loading="lazy"
                       className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 rounded-lg object-contain"
                       alt={lang.name}
                       style={{

@@ -4,6 +4,7 @@ import { theBlack, theRed } from '../utils/colors';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import Magnetic from '../utils/Magnetic';
+import { optimized } from '../utils/image';
 
 function NextProject({ name, image }) {
   const { t } = useTranslation();
@@ -27,7 +28,7 @@ function NextProject({ name, image }) {
       <div className="flex flex-col items-center mt-20">
         <motion.img
           loading="lazy"
-          src={image}
+          src={image ? optimized(image, 800) : undefined}
           alt="this image wont load"
           className="md:w-[350px] w-[250px] bg-gray-500 md:translate-y-[100px] rounded-t-lg"
           whileHover={{ y: -100 }} // Moves the image up by 10px on hover

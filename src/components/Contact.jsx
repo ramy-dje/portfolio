@@ -4,6 +4,7 @@ import { theBlack } from '../utils/colors';
 import MagneticButton from './MagneticButton';
 import Magnetic from '../utils/Magnetic';
 import emailjs from '@emailjs/browser';
+import { optimized } from '../utils/image';
 
 function Contact() {
   const { t } = useTranslation();
@@ -214,8 +215,11 @@ function Contact() {
         {/* Sidebar */}
         <div className="md:w-4/12 w-full">
           <img
-            src="ramy2.png"
+            src={optimized('/ramy2.png', 260)}
             alt="Rami Djebeli"
+            width={130}
+            height={130}
+            loading="lazy"
             className="w-[130px] h-[130px] rounded-full mb-8"
           />
           <div className="mb-10">
