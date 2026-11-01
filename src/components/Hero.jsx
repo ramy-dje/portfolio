@@ -1,5 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { theGray } from '../utils/colors';
 import NavBar from './NavBar';
@@ -8,20 +7,7 @@ import { optimized, srcSet } from '../utils/image';
 
 function Hero() {
   const { t, i18n } = useTranslation();
-  const marqueeRef = useRef(null);
-  const [width, setWidth] = useState(0);
   const isRTL = i18n.language === 'ar';
-
-  useEffect(() => {
-    function updateWidth() {
-      if (marqueeRef.current) {
-        setWidth(marqueeRef.current.scrollWidth / 6); // since we have 6 copies
-      }
-    }
-    updateWidth();
-    window.addEventListener('resize', updateWidth);
-    return () => window.removeEventListener('resize', updateWidth);
-  }, [i18n.language]);
 
   return (
     <section
@@ -72,28 +58,19 @@ function Hero() {
         className="absolute bottom-0 md:bottom-16 z-30 w-full h-[150px] md:h-[270px] overflow-hidden flex items-center pointer-events-none"
         dir="ltr"
       >
-        <motion.div
-          key={isRTL ? 'marquee-ar' : 'marquee-ltr'}
-          className="flex gap-8 md:gap-12 text-white whitespace-nowrap"
-          ref={marqueeRef}
-          animate={{ x: isRTL ? [-width, 0] : [0, -width] }}
-          transition={{
-            repeat: Infinity,
-            repeatType: 'loop',
-            duration: 40,
-            ease: 'linear',
-          }}
-          style={{ x: isRTL ? -width : 0 }}
+        <div
+          className="hero-marquee flex w-max text-white whitespace-nowrap"
+          style={{ animationDirection: isRTL ? 'reverse' : 'normal' }}
         >
           {[...Array(6)].map((_, i) => (
-            <div key={i} className="flex md:gap-12 gap-4 items-center whitespace-nowrap">
+            <div key={i} className="flex md:gap-12 gap-4 items-center whitespace-nowrap pr-8 md:pr-12">
               <p className="lg:text-[240px] md:text-[170px] text-[100px] sm:text-[120px] leading-none z-10">
                 {t('hero.name')}
               </p>
               <div className="lg:h-[20px] md:h-[15px] h-[8px] md:w-[200px] w-[100px] bg-white"></div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

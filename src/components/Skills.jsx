@@ -41,6 +41,10 @@ function Skills() {
     amount: 0.3,
   });
 
+  // False while scrolled away and always false when the panel is hidden on
+  // mobile, so the frame loop below never runs there.
+  const floatersInView = useInView(containerRef);
+
   const description = t('skills.description');
   const words = description.split(/\s+/);
 
@@ -95,6 +99,8 @@ function Skills() {
   }, []);
 
   useEffect(() => {
+    if (!floatersInView) return;
+
     const animate = () => {
       if (!positions.length || !velocities.length) {
         frameRef.current = requestAnimationFrame(animate);
@@ -157,7 +163,7 @@ function Skills() {
 
     frameRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(frameRef.current);
-  }, [positions, velocities, mousePosition, containerSize]);
+  }, [positions, velocities, mousePosition, containerSize, floatersInView]);
 
   return (
     <section id="skills" className="md:py-16 py-10 md:px-10 lg:px-16 xl:px-32 px-4 bg-white">
@@ -259,14 +265,18 @@ function Skills() {
                 }}
               >
                 <motion.div
-                  animate={{
-                    y: [0, -5, 0],
-                    rotate: [
-                      positions[index].rotation,
-                      positions[index].rotation + 3,
-                      positions[index].rotation,
-                    ],
-                  }}
+                  animate={
+                    floatersInView
+                      ? {
+                          y: [0, -5, 0],
+                          rotate: [
+                            positions[index].rotation,
+                            positions[index].rotation + 3,
+                            positions[index].rotation,
+                          ],
+                        }
+                      : undefined
+                  }
                   transition={{
                     duration: 3 + (index % 2),
                     ease: 'easeInOut',
