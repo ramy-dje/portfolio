@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { theGray } from '../utils/colors';
 import NavBar from './NavBar';
 import Magnetic from '../utils/Magnetic';
+import { optimized, srcSet } from '../utils/image';
 
 function Hero() {
   const { t, i18n } = useTranslation();
@@ -29,9 +30,14 @@ function Hero() {
     >
       <NavBar isBlack={false} />
       <img
-        src="ramy.png"
+        src={optimized('/ramy.png', 1021)}
+        srcSet={srcSet('/ramy.png', [640, 1021])}
+        sizes="(min-width: 768px) 92vh, 78vh"
+        width={1021}
+        height={1117}
+        fetchPriority="high"
         alt=""
-        className="md:h-screen h-[85%] absolute bottom-0 right-[50%] translate-x-1/2 object-cover z-20 pointer-events-none"
+        className="md:h-screen h-[85%] w-auto absolute bottom-0 right-[50%] translate-x-1/2 object-cover z-20 pointer-events-none"
       />
       <div className="absolute top-[40px] right-[50%] translate-x-1/2 md:w-[750px] w-[350px] h-[750px] rounded-full bg-[#D9D9D9] z-4 blur-[80px]"></div>
 
