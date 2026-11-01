@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { projects } from '../utils/info';
+import { optimized, srcSet, SCREENSHOT_WIDTHS } from '../utils/image';
 
 const projectShots = projects.map((p) => ({
   name: p.name,
@@ -51,9 +52,12 @@ function MarqueeRow({ items, reverse = false, duration = 40 }) {
         {[...items, ...items].map((item, i) => (
           <div key={i} className="shrink-0 pr-4 sm:pr-6">
             <img
-              src={item.src}
+              src={optimized(item.src, 800)}
+              srcSet={srcSet(item.src, SCREENSHOT_WIDTHS)}
+              sizes="(min-width: 1024px) 640px, 480px"
               alt={item.name}
               loading="lazy"
+              decoding="async"
               draggable={false}
               className="h-60 sm:h-72 md:h-84 lg:h-96 w-auto rounded-2xl sm:rounded-3xl border border-gray-200/90 shadow-sm hover:shadow-md transition-shadow object-cover"
             />

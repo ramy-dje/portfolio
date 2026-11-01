@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { theBlack, theRed } from '../utils/colors';
 import { projects } from '../utils/info';
+import { optimized, srcSet, SCREENSHOT_WIDTHS } from '../utils/image';
 
 function Projects() {
   const { t } = useTranslation();
@@ -12,10 +13,12 @@ function Projects() {
   const [modal, setModal] = useState({ active: false, index: 0 });
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
   const [showLabel, setShowLabel] = useState(false);
+  const [previewReady, setPreviewReady] = useState(false);
   const modalContainer = useRef(null);
 
   const manageModal = (active, index) => {
     if (typeof window !== 'undefined' && window.innerWidth < 768) return;
+    if (active) setPreviewReady(true);
     setModal({ active, index });
   };
 
@@ -88,7 +91,11 @@ function Projects() {
           >
             {/* Mobile image */}
             <img
-              src={project.images[0]}
+              src={optimized(project.images[0], 800)}
+              srcSet={srcSet(project.images[0], SCREENSHOT_WIDTHS)}
+              sizes="100vw"
+              loading="lazy"
+              decoding="async"
               alt={project.name}
               className="block md:hidden w-full h-[220px] object-cover rounded-md"
             />
@@ -117,6 +124,7 @@ function Projects() {
                   <div key={idx} className="h-8 w-8 rounded-full bg-gray-100 p-1.5 shadow-sm flex items-center justify-center shrink-0 border border-gray-200 hover:scale-105 transition-transform" title={tech.name}>
                     <img
                       src={tech.image}
+                      loading="lazy"
                       alt={tech.name}
                       className="w-full h-full object-contain rounded-full"
                     />
@@ -161,11 +169,13 @@ function Projects() {
               key={`modal_${idx}`}
               className="h-full w-full flex items-center justify-center overflow-hidden rounded-2xl"
             >
-              <img
-                src={project.images[0]}
-                alt={project.name}
-                className="w-full h-full object-cover rounded-2xl shadow-xl"
-              />
+              {previewReady && (
+                <img
+                  src={optimized(project.images[0], 800)}
+                  alt={project.name}
+                  className="w-full h-full object-cover rounded-2xl shadow-xl"
+                />
+              )}
             </div>
           ))}
         </div>
