@@ -1,16 +1,19 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from './pages/main';
-import Project from './pages/project';
+
+const Project = lazy(() => import('./pages/project'));
 
 function App() {
   return (
     <BrowserRouter>
       <div className=" ">
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/project/:name" element={<Project />} />
-        </Routes>
+        <Suspense fallback={null}>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/project/:name" element={<Project />} />
+          </Routes>
+        </Suspense>
       </div>
     </BrowserRouter>
   );
